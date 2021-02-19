@@ -10,13 +10,53 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('Nombre') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="ap_p" value="{{ __('Apellido Paterno') }}" />
+                <x-jet-input id="ap_p" class="block mt-1 w-full" type="text" name="ap_p" :value="old('ap_p')" required autofocus autocomplete="ap_p" />
+            </div>
+
+            <div>
+                <x-jet-label for="ap_m" value="{{ __('Apellido Materno') }}" />
+                <x-jet-input id="ap_m" class="block mt-1 w-full" type="text" name="ap_m" :value="old('ap_m')" required autofocus autocomplete="ap_m" />
+            </div>
+
+            <div>
+                <x-jet-label for="direccion" value="{{ __('Direccion') }}" />
+                <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required autofocus autocomplete="direccion" />
+            </div>
+
+            <div>
+                <x-jet-label for="discapacidad" value="{{ __('Discapacidad') }}" />
+                <x-jet-input id="discapacidad" class="block mt-1 w-full" type="text" name="discapacidad" :value="old('discapacidad')" required autofocus autocomplete="discapacidad" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div>
+                <x-jet-label for="cedula" value="{{ __('Cedula') }}" />
+                <x-jet-input id="cedula" class="block mt-1 w-full" type="text" name="cedula" :value="old('cedula')" required autofocus autocomplete="cedula" />
+            </div>
+
+            <div>
+                <x-jet-label for="rfc" value="{{ __('RFC') }}" />
+                <x-jet-input id="rfc" class="block mt-1 w-full" type="text" name="rfc" :value="old('rfc')" required autofocus autocomplete="rfc" />
+            </div>
+
+            <div>
+                <x-jet-label for="curp" value="{{ __('Curp') }}" />
+                <x-jet-input id="curp" class="block mt-1 w-full" type="text" name="curp" :value="old('curp')" required autofocus autocomplete="curp" />
+            </div>
+
+            <div>
+                <x-jet-label for="fecha" value="{{ __('Fecha de nacimiento') }}" />
+                <x-jet-input id="fecha" class="block mt-1 w-full" type="date" name="fecha" :value="old('fecha')" required autofocus autocomplete="fecha" />
             </div>
 
             <div class="mt-4">
