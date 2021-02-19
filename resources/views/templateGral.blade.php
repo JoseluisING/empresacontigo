@@ -54,7 +54,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{route('index')}}">Inicio</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="{{route('acercade')}}">Acerca de</a></li>
                                             <li><a href="services.html">Services</a></li>
                                             <li><a href="work.html">Works</a></li>
                                             <li><a href="blog.html">Blog</a>
@@ -68,7 +68,7 @@
                                                     <li><a href="elements.html">Element</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{{route('contact')}}">Contactanos</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -90,7 +90,9 @@
         <!-- Header End -->
     </header>
     <main>
+
         @yield('content')
+
     </main>
     <footer>
         <!-- Footer Start-->
