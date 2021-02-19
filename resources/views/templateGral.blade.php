@@ -54,15 +54,18 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{route('index')}}">Inicio</a></li>
+                                            @if (Route::has('login'))
+                                            @auth
+                                            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                                            @else
+                                            <li><a href="{{ route('login') }}">Loggin</a></li>
+                                            @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}">Registrar</a></li>
+                                            @endif
+                                            @endauth
+                                            @endif
                                             <li><a href="{{route('acercade')}}">Acerca de</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="work.html">Works</a></li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
+                                    
                                             <li><a href="#">Pages</a>
                                                 <ul class="submenu">
                                                     <li><a href="elements.html">Element</a></li>
@@ -72,7 +75,7 @@
                                         </ul>
                                     </nav>
                                 </div>
-                            </div>             
+                            </div>
                             <div class="col-xl-2 col-lg-3 col-md-3">
                                 <div class="header-right-btn f-right d-none d-lg-block">
                                     <a href="#" class="btn header-btn">Contact Now</a>
