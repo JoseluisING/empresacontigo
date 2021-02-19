@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/general/img/favicon.ico')}}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/general/img/favicon.png')}}">
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="{{ asset('assets/general/css/bootstrap.min.css')}}">
@@ -58,7 +58,7 @@
                                             @auth
                                             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
                                             @else
-                                            <li><a href="{{ route('login') }}">Loggin</a></li>
+                                            <li><a href="{{ route('login') }}">Login</a></li>
                                             @if (Route::has('register'))
                                             <li><a href="{{ route('register') }}">Registrar</a></li>
                                             @endif
