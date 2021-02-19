@@ -11,7 +11,7 @@
                   <img src="{{ asset('assets/general/img/hero/hero_img.jpg')}}" alt=""  data-animation="fadeInRight" data-transition-duration="5s">
                 </div>
                 <div class="hero__caption">
-                    <h1 data-animation="fadeInLeft" data-delay=".4s">Business Synergy via <br>Robust Strategies</h1>
+                    <h1 data-animation="fadeInLeft" data-delay=".4s">NOM 035 <br>Robust Strategies</h1>
                     <p data-animation="fadeInLeft" data-delay=".6s">Aasrem dfgum dolor sivst amet, consectetur adipisicing elitvde, sed dvo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad micnim veniam, quis nostrud exercita.</p>
                     <!-- Hero Btn -->
                     <a href="#" class="hero-btn"  data-animation="fadeInLeft" data-delay=".9s" >
@@ -34,7 +34,7 @@
                   <img src="{{ asset('assets/general/img/hero/hero_img2.jpg')}}" alt=""  data-animation="fadeInRight" data-transition-duration="5s">
                 </div>
                 <div class="hero__caption">
-                    <h1 data-animation="fadeInLeft" data-delay=".4s">Business Synergy via <br>Robust Strategies</h1>
+                    <h1 data-animation="fadeInLeft" data-delay=".4s">NOM 035<br>Robust Strategies</h1>
                     <p data-animation="fadeInLeft" data-delay=".6s">Aasrem dfgum dolor sivst amet, consectetur adipisicing elitvde, sed dvo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad micnim veniam, quis nostrud exercita.</p>
                     <!-- Hero Btn -->
                     <a href="#" class="hero-btn"  data-animation="fadeInLeft" data-delay=".9s" >
