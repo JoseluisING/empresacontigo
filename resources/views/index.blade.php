@@ -41,10 +41,8 @@
                             data-transition-duration="5s">
                     </div>
                     <div class="hero__caption">
-                        <h1 data-animation="fadeInLeft" data-delay=".4s">NOM 035<br>Robust Strategies</h1>
-                        <p data-animation="fadeInLeft" data-delay=".6s">Aasrem dfgum dolor sivst amet, consectetur
-                            adipisicing elitvde, sed dvo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad micnim veniam, quis nostrud exercita.</p>
+                        <h1 data-animation="fadeInLeft" data-delay=".4s">NOM 035<br></h1>
+                        <p data-animation="fadeInLeft" data-delay=".6s">La NOM 035 tiene como objetivo establecer los elementos para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
                         <!-- Hero Btn -->
                         <a href="#" class="hero-btn" data-animation="fadeInLeft" data-delay=".9s">
                             View project
@@ -71,16 +69,46 @@
             <div class="row align-items-end">
                 <div class="col-xl-5 col-lg-7 col-md-8">
                     <div class="wantToWork-caption">
-                        <p>Once you’ve settled on a business</p>
-                        <h2>High Performance Services For Multiple Industries.</h2>
+                        
+                        <h2>DETECTA</h2>
+                        <p>Identifica a los colaboradores que hayan experimentado ATS o FRPs con la Guía de Referencia I y II.</p>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-5 col-md-4">
                     <div class="wantToWork-btn f-right">
-                        <a href="#" class="btn btn-ans">view more</a>
+                        <a href="#" class="btn btn-ans">Ver más</a>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="wantToWork-caption">
+                                
+                                <h2>EVALÚA</h2>
+                                <p>Comprueba el estado de tu entorno organizacional con el Cuestionario de Referencia III. Extrae todos los datos que necesites y analízalos desde el apartado de dashboards e informes.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-5 col-md-4">
+                            <div class="wantToWork-btn f-right">
+                                <a href="#" class="btn btn-ans">Ver más</a>
+                            </div>
+                        </div>
             </div>
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="wantToWork-caption">
+                            
+                            <h2>ANALIZA</h2>
+                            <p>Estudia los resultados de los cuestionarios con el sistema de dashboards y reportes</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-5 col-md-4">
+                        <div class="wantToWork-btn f-right">
+                            <a href="#" class="btn btn-ans">Ver más</a>
+                        </div>
+                    </div>
+        </div>
         </div>
     </div>
     <!-- Want To Work End -->
