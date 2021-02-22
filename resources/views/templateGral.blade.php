@@ -21,7 +21,8 @@
             <link rel="stylesheet" href="{{ asset('assets/general/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('assets/general/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('assets/general/css/style.css')}}">
-
+            <!-- Iconos-->
+            <script src="https://use.fontawesome.com/d27a85eae8.js"></script>
    <body>
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -54,6 +55,12 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{route('index')}}">Inicio</a></li>
+                                            <li><a href="{{route('acercade')}}">Acerca de</a></li>
+                                            <li><a href="#">Pages</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{{route('elementos')}}">Elementos</a></li>
+                                                </ul>
+                                            </li>
                                             @if (Route::has('login'))
                                             @auth
                                             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
@@ -64,21 +71,13 @@
                                             @endif
                                             @endauth
                                             @endif
-                                            <li><a href="{{route('acercade')}}">Acerca de</a></li>
-                                    
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="{{route('contact')}}">Contactanos</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3 col-md-3">
                                 <div class="header-right-btn f-right d-none d-lg-block">
-                                    <a href="#" class="btn header-btn">Contact Now</a>
+                                    <a href="{{route('contact')}}" class="btn header-btn">Contáctanos </a>
                                 </div>
                             </div>
                             <!-- Mobile Menu -->
@@ -108,7 +107,7 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo">
-                                        <a href="index.html"><img src="{{ asset('assets/general/img/logo/logo2_footer.png')}}" alt=""></a>
+                                        <a href="index.html"><img src="{{ asset('assets/general/img/logo/footer.png')}}" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -116,13 +115,10 @@
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Services</h4>
+                                    <h4>Servicios</h4>
                                     <ul>
-                                        <li><a href="#">Marketing</a></li>
-                                        <li><a href="#"> SEO Service</a></li>
-                                        <li><a href="#">Digital market</a></li>
-                                        <li><a href="#">Content create</a></li>
-                                        <li><a href="#">Find Us</a></li>
+                                        <li><a href="#">Iniciar Sesión</a></li>
+                                        <li><a href="#">Registrate</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -130,13 +126,11 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Customer Care</h4>
+                                    <h4>Atención al Cliente</h4>
                                     <ul>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">News & Articles</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#"> Terms of Use</a></li>
+                                        <li><a href="#">Contactanos</a></li>
+                                        <li><a href="#">Acerca de</a></li>
+                                        <li><a href="#">Política de Privacidad</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -144,11 +138,11 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4><span>+564</span> 7885 3222</h4>
+                                    <h4><span>+52</span> 55421770669</h4>
                                     <ul>
-                                        <li><a href="#">youremail@gmail.com</a></li>
+                                        <li><a href="#">empresacontigo035@gmail.com</a></li>
                                     </ul>
-                                    <p>123 East 26th Street, Fifth Floor, New York, NY 10011</p>
+                                    <p>San Martin Azcatepec, San Martín Azcatepec, Estado de México</p>
                                 </div>
                                 <!-- footer social -->
                                 <div class="footer-social">
@@ -166,7 +160,7 @@
                         <div class="col-xl-12 ">
                             <div class="footer-copy-right">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Empresa Contrigo S.A de C.V.
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                             </div>
                         </div>
