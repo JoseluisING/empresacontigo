@@ -63,55 +63,7 @@
         </div>
     </div>
     <!-- slider Area End-->
-    <!-- Want To Work Start -->
-    <div class="wantToWork-area w-padding">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-xl-5 col-lg-7 col-md-8">
-                    <div class="wantToWork-caption">
-                        
-                        <h2>DETECTA</h2>
-                        <p>Identifica a los colaboradores que hayan experimentado ATS o FRPs con la Guía de Referencia I y II.</p>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-5 col-md-4">
-                    <div class="wantToWork-btn f-right">
-                        <a href="#" class="btn btn-ans">Ver más</a>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row align-items-end">
-                        <div class="col-xl-5 col-lg-7 col-md-8">
-                            <div class="wantToWork-caption">
-                                
-                                <h2>EVALÚA</h2>
-                                <p>Comprueba el estado de tu entorno organizacional con el Cuestionario de Referencia III. Extrae todos los datos que necesites y analízalos desde el apartado de dashboards e informes.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-5 col-md-4">
-                            <div class="wantToWork-btn f-right">
-                                <a href="#" class="btn btn-ans">Ver más</a>
-                            </div>
-                        </div>
-            </div>
-            <div class="container">
-                <div class="row align-items-end">
-                    <div class="col-xl-5 col-lg-7 col-md-8">
-                        <div class="wantToWork-caption">
-                            
-                            <h2>ANALIZA</h2>
-                            <p>Estudia los resultados de los cuestionarios con el sistema de dashboards y reportes</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-5 col-md-4">
-                        <div class="wantToWork-btn f-right">
-                            <a href="#" class="btn btn-ans">Ver más</a>
-                        </div>
-                    </div>
-        </div>
-        </div>
-    </div>
-    <!-- Want To Work End -->
+    
     <!-- Our Services Start -->
     <div class="our-services  pt-50 pb-150">
         <div class="container">
@@ -122,8 +74,8 @@
                             <span class="flaticon-experience"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>Strategic Planning</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            <h5>DETECTA</h5>
+                            <p>Identifica a los colaboradores que hayan experimentado ATS o FRPs con la Guía de Referencia I y II.</p>
                         </div>
                     </div>
                 </div>
@@ -133,8 +85,8 @@
                             <span class="flaticon-pay"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>Trades & stocks</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            <h5>EVALÚA</h5>
+                            <p>Comprueba el estado de tu entorno organizacional con el Cuestionario de Referencia III. Extrae todos los datos que necesites y analízalos desde el apartado de dashboards e informes.</p>
                         </div>
                     </div>
                 </div>
@@ -144,8 +96,8 @@
                             <span class="flaticon-good"></span>
                         </div>
                         <div class="services-cap">
-                            <h5>Audit & Assurance</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            <h5>ANALIZA</h5>
+                            <p>Estudia los resultados de los cuestionarios con el sistema de dashboards y reportes.</p>
                         </div>
                     </div>
                 </div>
