@@ -117,8 +117,8 @@
                                 <div class="footer-tittle">
                                     <h4>Servicios</h4>
                                     <ul>
-                                        <li><a href="#">Iniciar Sesión</a></li>
-                                        <li><a href="#">Registrate</a></li>
+                                        <li><a href="{{route('login')}}">Iniciar Sesión</a></li>
+                                        <li><a href="{{route('register')}}">Registrate</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -128,9 +128,9 @@
                                 <div class="footer-tittle">
                                     <h4>Atención al Cliente</h4>
                                     <ul>
-                                        <li><a href="#">Contactanos</a></li>
-                                        <li><a href="#">Acerca de</a></li>
-                                        <li><a href="#">Política de Privacidad</a></li>
+                                        <li><a href="{{route('contact')}}">Contactanos</a></li>
+                                        <li><a href="{{route('acercade')}}">Acerca de</a></li>
+                                        <li><a href="{{route('aviso')}}">Aviso de Privacidad</a></li>
                                     </ul>
                                 </div>
                             </div>
