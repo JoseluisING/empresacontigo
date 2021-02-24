@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('rfc')->unique();
             $table->string('curp')->unique();
             $table->string('password');
+            $table->string('id_rol')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
