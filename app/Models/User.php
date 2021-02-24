@@ -34,6 +34,7 @@ class User extends Authenticatable
         'cedula',
         'rfc',
         'curp',
+        'fecha',
         'email',
         'password',
 
