@@ -1,3 +1,17 @@
+@extends('templateGral')
+
+<style type="text/css">
+    .header-area{
+        background-color: #071427;
+    }
+    .mb-4{
+        margin-top: 500px;
+    }
+</style>
+
+@section('content')
+
+<br><br><br><br>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -98,3 +112,5 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+@endsection
