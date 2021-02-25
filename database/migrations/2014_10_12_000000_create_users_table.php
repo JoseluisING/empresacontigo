@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('ap_p');
             $table->string('ap_m');
-            $table->string('direccion');
+            //$table->string('cp');
             $table->string('discapacidad');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -28,9 +28,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('id_rol')->nullable();
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
+            //$table->foreignId('current_team_id')->nullable();
+            $table->string('rfc_company')->nullable();
             $table->text('profile_photo_path')->nullable();
-            $table->date('fecha')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->timestamps();
         });
     }

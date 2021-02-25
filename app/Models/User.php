@@ -29,13 +29,15 @@ class User extends Authenticatable
         'name',
         'ap_p',
         'ap_m',
-        'direccion',
+        //'direccion',
         'discapacidad',
         'cedula',
         'rfc',
+        'rfc_company',
         'curp',
-        'fecha',
+        'fecha_nacimiento',
         'email',
+        'id_rol',
         'password',
 
     ];
