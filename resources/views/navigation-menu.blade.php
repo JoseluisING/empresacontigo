@@ -19,6 +19,9 @@
                     <x-jet-nav-link href="{{ route('misempleados') }}" :active="request()->routeIs('misempleados')">
                         {{ __('Ver Empleados') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('registrarEmpleado') }}" :active="request()->routeIs('registrarEmpleado')">
+                        {{ __('Nuevo Empleado') }}
+                    </x-jet-nav-link>
                     @else
                     <x-jet-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
                         {{ __('User') }}
@@ -150,6 +153,18 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            @if(Auth::user()->id_rol==1)
+            <x-jet-responsive-nav-link href="{{ route('misempleados') }}" :active="request()->routeIs('misempleados')">
+                {{ __('Ver mis empleados') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('registrarEmpleado') }}" :active="request()->routeIs('registrarEmpleado')">
+                    {{ __('Nuevo Empleado') }}
+            </x-jet-responsive-nav-link>
+            @else
+            <x-jet-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
+                {{ __('user') }}
+            </x-jet-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
