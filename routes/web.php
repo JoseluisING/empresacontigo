@@ -19,7 +19,7 @@ use App\Http\Livewire\RegistrarEmpleado;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+//Rutas estaticas
 Route::view("/", 'index')->name('index');
 Route::view("/contact", 'contact')->name('contact');
 Route::view("/about", 'about')->name('acercade');
@@ -33,6 +33,7 @@ Route::get('/user', Empleado::class)->middleware(['auth','isUser'])->name('user'
 Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth','isAdmin'])->name('misempleados');
 Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth','isAdmin'])->name('registrarEmpleado');
 
+//Dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

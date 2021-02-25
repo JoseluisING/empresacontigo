@@ -89,8 +89,7 @@
         </div>
     </div>
 </div>
-@else
-
+@elseif(Auth::user()->id_rol==2)
 
 <!-- component -->
 <div class="w-full">

@@ -78,9 +78,7 @@
                 <x-jet-input id="fecha_nacimiento" class="block mt-1 w-full" type="date" name="fecha_nacimiento" :value="old('fecha_nacimiento')" required autofocus autocomplete="fecha" />
             </div>
 
-            <div class="mt-4">
-                <x-jet-input id="id_rol" class="block mt-1 w-full" type="hidden" name="id_rol" :value="1" required />
-            </div>
+            
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />

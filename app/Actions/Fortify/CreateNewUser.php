@@ -49,7 +49,7 @@ class CreateNewUser implements CreatesNewUsers
             'curp' => $input['curp'],
             'fecha_nacimiento' => $input['fecha_nacimiento'],
             'email' => $input['email'],
-            'id_rol'=> $input['id_rol'],
+            'id_rol'=> 1,
             'password' => Hash::make($input['password']),
         ]);
     }
