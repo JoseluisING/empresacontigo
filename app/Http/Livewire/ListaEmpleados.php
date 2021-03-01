@@ -3,11 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Empleado;
 
 class ListaEmpleados extends Component
 {
     public function render()
     {
-        return view('livewire.lista-empleados');
+        $li = Empleado::all();
+
+        return view('livewire.lista-empleados', compact('li'));
     }
 }
