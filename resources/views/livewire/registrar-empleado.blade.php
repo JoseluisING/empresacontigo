@@ -1,107 +1,118 @@
-<div>
-    <x-guest-layout>
-        <x-jet-authentication-card>
-            <x-slot name="logo">
-                <x-jet-authentication-card-logo />
-            </x-slot>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
-            <x-jet-validation-errors class="mb-4" />
+            {{ __('Dashboard') }} / Bienvenid@: {{ Auth::user()->name .' '. Auth::user()->ap_p.' '. Auth::user()->ap_m}}
+            @if(Auth::user()->id_rol==1)
+            <div class="inline-block mr-2 mt-2">
+                <button type="button" class="focus:outline-none text-blue-600 text-sm py-2.5 px-5 rounded-md hover:bg-blue-100">Admin</button>
+             </div>
+            @else
+            <div class="inline-block mr-2 mt-2">
+                <button type="button" class="focus:outline-none text-green-600 text-sm py-2.5 px-5 rounded-md hover:bg-green-100">Empleado</button>
+             </div>
+            @endif
+        </h2>
+    </x-slot>
 
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-center">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                <div>
-                    <x-jet-label for="name" value="{{ __('Nombre') }}" />
-                    <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                </div>
+<div class="mt-10 sm:mt-0">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+        <p class="mt-1 text-sm text-gray-600 text-red-600"> <br>
+         @error('name') <span>{{ $message }}</span> @enderror
+         @error('app_p') <span>{{ $message }}</span> @enderror <br>
+          @error('ap_m') <span>{{ $message }}</span> @enderror <br>
+          @error('email') <span>{{ $message }}</span> @enderror <br>
+          @error('cedula') <span>{{ $message }}</span> @enderror <br>
+          @error('rfc') <span>{{ $message }}</span> @enderror <br>
+            @error('rfc_company') <span>{{ $message }}</span> @enderror <br>
+            @error('curp') <span>{{ $message }}</span> @enderror <br>
+            @error('fecha_nacimiento') <span>{{ $message }}</span> @enderror <br>
+            @error('password') <span>{{ $message }}</span> @enderror <br>
+        </p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                <input type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="name" name="name">
 
-                <div>
-                    <x-jet-label for="ap_p" value="{{ __('Apellido Paterno') }}" />
-                    <x-jet-input id="ap_p" class="block mt-1 w-full" type="text" name="ap_p" :value="old('ap_p')" required autofocus autocomplete="ap_p" />
-                </div>
+              </div>
 
-                <div>
-                    <x-jet-label for="ap_m" value="{{ __('Apellido Materno') }}" />
-                    <x-jet-input id="ap_m" class="block mt-1 w-full" type="text" name="ap_m" :value="old('ap_m')" required autofocus autocomplete="ap_m" />
-                </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Apellido Paterno</label>
+                <input type="text" name="ap_p" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="ap_p">
 
-               <!---- <div>
-                    <x-jet-label for="direccion" value="{{ __('Direccion') }}" />
-                    <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required autofocus autocomplete="direccion" />
-                </div> -->
-    
-                <div>
-                    <x-jet-label for="discapacidad" value="{{ __('Discapacidad') }}" />
-                    <x-jet-input id="discapacidad" class="block mt-1 w-full" type="text" name="discapacidad" :value="old('discapacidad')" required autofocus autocomplete="discapacidad" />
-                </div>
-    
-                <div class="mt-4">
-                    <x-jet-label for="email" value="{{ __('Email') }}" />
-                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-                </div>
-    
-                <div>
-                    <x-jet-label for="cedula" value="{{ __('Cedula') }}" />
-                    <x-jet-input id="cedula" class="block mt-1 w-full" type="text" name="cedula" :value="old('cedula')" required autofocus autocomplete="cedula" />
-                </div>
-    
-                <div>
-                    <x-jet-label for="rfc" value="{{ __('RFC') }}" />
-                    <x-jet-input id="rfc" class="block mt-1 w-full" type="text" name="rfc" :value="old('rfc')" required autofocus autocomplete="rfc" />
-                </div>
-    
-                 <div>
-                  
-                    <x-jet-input id="rfc_company" class="block mt-1 w-full" type="text" name="rfc_company" :value="Auth::user()->rfc_company" required autofocus autocomplete="rfc_company" />
-                </div> 
-    
-                <div>
-                    <x-jet-label for="curp" value="{{ __('Curp') }}" />
-                    <x-jet-input id="curp" class="block mt-1 w-full" type="text" name="curp" :value="old('curp')" required autofocus autocomplete="curp" />
-                </div>
-    
-                <div>
-                    <x-jet-label for="fecha_nacimiento" value="{{ __('Fecha de nacimiento') }}" />
-                    <x-jet-input id="fecha_nacimiento" class="block mt-1 w-full" type="date" name="fecha_nacimiento" :value="old('fecha_nacimiento')" required autofocus autocomplete="fecha" />
-                </div>
-    
-                <div class="mt-4">
-                    <x-jet-input id="id_rol" class="block mt-1 w-full" type="hidden" name="id_rol" :value="2" required />
-                </div>
-    
-                <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-                </div>
-    
-                <div class="mt-4">
-                    <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-                </div>
-    
-                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                        <div class="mt-4">
-                            <x-jet-label for="terms">
-                                <div class="flex items-center">
-                                    <x-jet-checkbox name="terms" id="terms"/>
-        
-                                    <div class="ml-2">
-                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                        ]) !!}
-                                    </div>
-                                </div>
-                            </x-jet-label>
-                        </div>
-                @endif
+              </div>
 
-                <div class="flex items-center justify-end mt-4">
-                    <x-jet-button class="ml-4">
-                        {{ __('Register') }}
-                    </x-jet-button>
-                </div>
-            </form>
-        </x-jet-authentication-card>
-    </x-guest-layout>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Apellido Materno</label>
+                <input type="text" name="ap_m" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="ap_m">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="text" name="email" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="email">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Ceula</label>
+                <input type="text" name="cedula" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="cedula">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">RFC</label>
+                <input type="text" name="rfc" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="rfc">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">RFC company</label>
+                <input type="text" name="rfc_company" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="rfc_company">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Curp</label>
+                <input type="text" name="curp" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"  wire:model="curp">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Fecha nacimiento</label>
+                <input type="date" name="fecha_nacimiento" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="fecha_nacimiento">
+
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <input type="password" name="password" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="password">
+
+              </div>
+
+            </div>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click="store">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+<<!-- wire:click="store" -->

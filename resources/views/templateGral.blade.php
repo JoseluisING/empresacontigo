@@ -21,6 +21,8 @@
             <link rel="stylesheet" href="{{ asset('assets/general/css/slick.css')}}">
             <link rel="stylesheet" href="{{ asset('assets/general/css/nice-select.css')}}">
             <link rel="stylesheet" href="{{ asset('assets/general/css/style.css')}}">
+
+
             <!-- Iconos-->
             <script src="https://use.fontawesome.com/d27a85eae8.js"></script>
    <body>
@@ -212,5 +214,6 @@
 		<!-- Jquery Plugins, main Jquery -->
         <script src="{{ asset('assets/general/js/plugins.js')}}"></script>
         <script src="{{ asset('assets/general/js/main.js')}}"></script>
+
     </body>
 </html>

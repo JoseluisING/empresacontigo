@@ -6,6 +6,8 @@ use App\Http\Livewire\Empleado;
 use App\Http\Livewire\ListaEmpleados;
 use App\Http\Livewire\RegistrarEmpleado;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,12 +33,10 @@ Route::get('/user', Empleado::class)->middleware(['auth','isUser'])->name('user'
 
 //Rutas admin
 Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth','isAdmin'])->name('misempleados');
+
 Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth','isAdmin'])->name('registrarEmpleado');
 
 //Dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-
-
