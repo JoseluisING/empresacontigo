@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('ap_p');
             $table->string('ap_m');
             //$table->string('cp');
-            $table->string('discapacidad');
+           // $table->string('discapacidad');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('cedula')->unique();
