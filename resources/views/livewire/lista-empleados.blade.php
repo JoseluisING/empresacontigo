@@ -22,9 +22,6 @@
                     Apellido_M
                   </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Discapacidad
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Correo
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -58,9 +55,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">{{ $lis->ap_m}}</div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ $lis->discapacidad}}
-                </td>
+
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{ $lis->email}}
                   </td>
