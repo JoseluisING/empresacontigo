@@ -30,7 +30,7 @@ class User extends Authenticatable
         'ap_p',
         'ap_m',
         //'direccion',
-        'discapacidad',
+        //'discapacidad',
         'cedula',
         'rfc',
         'rfc_company',

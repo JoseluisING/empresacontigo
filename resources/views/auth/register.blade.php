@@ -43,10 +43,10 @@
                 <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required autofocus autocomplete="direccion" />
             </div> -->
 
-            <div>
+           <!---- <div>
                 <x-jet-label for="discapacidad" value="{{ __('Discapacidad') }}" />
                 <x-jet-input id="discapacidad" class="block mt-1 w-full" type="text" name="discapacidad" :value="old('discapacidad')" required autofocus autocomplete="discapacidad" />
-            </div>
+            </div>-->
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
