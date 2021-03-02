@@ -20,9 +20,9 @@
 
 <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
-    <div class="md:col-span-1">
+    <div class="md:col-span-1 p-5">
       <div class="px-4 sm:px-0">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Registro Empleado</h3>
         <p class="mt-1 text-sm text-gray-600 text-red-600"> <br>
          @error('name') <span>{{ $message }}</span> @enderror
          @error('app_p') <span>{{ $message }}</span> @enderror <br>
@@ -67,7 +67,7 @@
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="last_name" class="block text-sm font-medium text-gray-700">Ceula</label>
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Cedula</label>
                 <input type="text" name="cedula" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="cedula">
 
               </div>
@@ -78,11 +78,7 @@
 
               </div>
 
-              <div class="col-span-6 sm:col-span-3">
-                <label for="last_name" class="block text-sm font-medium text-gray-700">RFC company</label>
-                <input type="text" name="rfc_company" id="last_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" wire:model="rfc_company">
 
-              </div>
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="last_name" class="block text-sm font-medium text-gray-700">Curp</label>
