@@ -18,11 +18,11 @@ class Empleado extends Model
         //'direccion',
         'cedula',
         'rfc',
-        'rfc_company',
         'curp',
         'fecha_nacimiento',
         'email',
         'id_rol',
+        'user_id',
         'password',
     ];
 

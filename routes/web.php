@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Empleado;
 use App\Http\Livewire\ListaEmpleados;
 use App\Http\Livewire\RegistrarEmpleado;
-
-
+use App\Http\Livewire\RegistrerCompanies;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +34,8 @@ Route::get('/user', Empleado::class)->middleware(['auth','isUser'])->name('user'
 Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth','isAdmin'])->name('misempleados');
 
 Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth','isAdmin'])->name('registrarEmpleado');
+
+Route::get('/RegistraEmpresa', RegistrerCompanies::class)->middleware(['auth','isAdmin'])->name('registraCompañia');
 
 //Dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

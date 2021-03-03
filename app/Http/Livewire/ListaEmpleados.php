@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\companies;
 use Livewire\Component;
 use App\Models\Empleado;
 use App\Models\User;
@@ -12,9 +13,8 @@ class ListaEmpleados extends Component
 
     public function render()
     {
-       $rfc_c= Auth::user()->rfc_company;
-        $li = Empleado::all()->where('rfc_company',$rfc_c)->where('id_rol',2);
-
+        $id_user= Auth::user()->id;
+        $li = Empleado::all()->where('user_id',$id_user)->where('id_rol',2);
         return view('livewire.lista-empleados', compact('li'));
     }
 }

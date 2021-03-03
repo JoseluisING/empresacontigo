@@ -38,15 +38,6 @@
                 <x-jet-input id="ap_m" class="block mt-1 w-full" type="text" name="ap_m" :value="old('ap_m')" required autofocus autocomplete="ap_m" />
             </div>
 
-           <!---- <div>
-                <x-jet-label for="direccion" value="{{ __('Direccion') }}" />
-                <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required autofocus autocomplete="direccion" />
-            </div> -->
-
-           <!---- <div>
-                <x-jet-label for="discapacidad" value="{{ __('Discapacidad') }}" />
-                <x-jet-input id="discapacidad" class="block mt-1 w-full" type="text" name="discapacidad" :value="old('discapacidad')" required autofocus autocomplete="discapacidad" />
-            </div>-->
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
@@ -63,10 +54,6 @@
                 <x-jet-input id="rfc" class="block mt-1 w-full" type="text" name="rfc" :value="old('rfc')" required autofocus autocomplete="rfc" />
             </div>
 
-             <div>
-                <x-jet-label for="rfc_company" value="{{ __('RFC de tu Compañia') }}" />
-                <x-jet-input id="rfc_company" class="block mt-1 w-full" type="text" name="rfc_company" :value="old('rfc_company')" required autofocus autocomplete="rfc_company" />
-            </div> 
 
             <div>
                 <x-jet-label for="curp" value="{{ __('Curp') }}" />
