@@ -2,19 +2,19 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
-            {{ __('Dashboard') }} / Bienvenid@: {{ Auth::user()->name .' '. Auth::user()->ap_p.' '. Auth::user()->ap_m}}
-            @if(Auth::user()->id_rol==1)
-            <div class="inline-block mr-2 mt-2">
-                <button type="button" class="focus:outline-none text-blue-600 text-sm py-2.5 px-5 rounded-md hover:bg-blue-100">Admin</button>
-             </div>
+            {{ __('Dashboard') }} / Bienvenid@:
+            {{ Auth::user()->name . ' ' . Auth::user()->ap_p . ' ' . Auth::user()->ap_m }}
+            @if (Auth::user()->id_rol == 1)
+                <div class="inline-block mr-2 mt-2">
+                    <button type="button"
+                        class="focus:outline-none text-blue-600 text-sm py-2.5 px-5 rounded-md hover:bg-blue-100">Admin</button>
+                </div>
             @else
-            <div class="inline-block mr-2 mt-2">
-                <button type="button" class="focus:outline-none text-green-600 text-sm py-2.5 px-5 rounded-md hover:bg-green-100">Empleado</button>
-             </div>
+                <div class="inline-block mr-2 mt-2">
+                    <button type="button"
+                        class="focus:outline-none text-green-600 text-sm py-2.5 px-5 rounded-md hover:bg-green-100">Empleado</button>
+                </div>
             @endif
-
-             <a href="{{route('registraCompañia')}}" class="text-pink-600">COMPLETA TUS DATOS!!!</a>
-
 
         </h2>
     </x-slot>

@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Empleado;
+use App\Http\Livewire\InformacionClinica;
 use App\Http\Livewire\ListaEmpleados;
 use App\Http\Livewire\RegistrarEmpleado;
 use App\Http\Livewire\RegistrerCompanies;
+use App\Models\InformacionClinica as ModelsInformacionClinica;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,7 @@ Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth','isAdmi
 
 Route::get('/RegistraEmpresa', RegistrerCompanies::class)->middleware(['auth','isAdmin'])->name('registraCompañia');
 
+Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth','isAdmin'])->name('clinicalInformation');
 //Dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

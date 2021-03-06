@@ -20,7 +20,8 @@ class RegistrarEmpleado extends Component
 
 	public function store()
 	{
-		$this->validate(['name' => 'required']);
+		$this->validate(['name' => 'required',
+		'rfc' => 'unique:App\Models\User,rfc',]);
 
 		$id = Auth::user()->id;
 
