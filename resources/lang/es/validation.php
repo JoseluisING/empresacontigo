@@ -146,6 +146,6 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => ['Log Out'=>'Cerrar Sesión'],
 
 ];

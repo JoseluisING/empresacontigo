@@ -58,14 +58,14 @@
                                         <ul id="navigation">
                                             <li><a href="{{route('index')}}">Inicio</a></li>
                                             <li><a href="{{route('acercade')}}">Acerca de</a></li>
-                                            <li><a href="#">Pages</a>
+                                           <!-- <li><a href="#">Pages</a>
                                                 <ul class="submenu">
                                                     <li><a href="{{route('elementos')}}">Elementos</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             @if (Route::has('login'))
                                             @auth
-                                            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                                            <li><a href="{{ url('/dashboard') }}">Inicio</a></li>
                                             @else
                                             <li><a href="{{ route('login') }}">Login</a></li>
                                             @if (Route::has('register'))

@@ -39,7 +39,10 @@ Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth','isAdmi
 
 Route::get('/RegistraEmpresa', RegistrerCompanies::class)->middleware(['auth','isAdmin'])->name('registraCompañia');
 
-Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth','isAdmin'])->name('clinicalInformation');
+//Rutas Ambos
+Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth'])->name('clinicalInformation');
+
+
 //Dashboard
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
