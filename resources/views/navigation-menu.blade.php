@@ -20,6 +20,7 @@
                             :active="request()->routeIs('misempleados')">
                             {{ __('Ver Empleados') }}
                         </x-jet-nav-link>
+
                         <x-jet-nav-link href="{{ route('registrarEmpleado') }}"
                             :active="request()->routeIs('registrarEmpleado')">
                             {{ __('Nuevo Empleado') }}
@@ -29,6 +30,10 @@
                             {{ __('User') }}
                         </x-jet-nav-link>
                     @endif
+                    <x-jet-nav-link href="{{ route('listanNotificacion') }}"
+                            :active="request()->routeIs('listanNotificacion')">
+                            {{ __('Notificaciones') }}
+                        </x-jet-nav-link>
                 </div>
             </div>
 

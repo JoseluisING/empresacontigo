@@ -18,10 +18,10 @@ class CreateNotifications extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->string('tema');
             $table->string('comentario');
-            $table->date('fecha');
-            $table->time('hora');
-            $table->string('reply');
-
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
+            $table->string('reply')->nullable();
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
