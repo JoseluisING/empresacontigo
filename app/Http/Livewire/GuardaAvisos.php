@@ -9,9 +9,10 @@ use Livewire\Component;
 class GuardaAvisos extends Component
 {
 
-    public $li, $informacionC;
+    public $informacionC;
     public function render()
     {
+        $id_reply= request()->input('txtIdNotificacion');
         $this->informacionC->user_id = Auth::user()->id;
         $this->informacionC->reply = request()->input('txtIdNotificacion');
         $this->informacionC->comentario = request()->input('txtResponder');
@@ -19,7 +20,7 @@ class GuardaAvisos extends Component
         $this->informacionC->fecha = now();
         $this->informacionC->hora = now();
         $this->informacionC->save();
-        return view('livewire.guarda-avisos');
+        return view('livewire.guarda-avisos', compact('id_reply'));
     }
     public function mount()
     {

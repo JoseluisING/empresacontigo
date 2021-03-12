@@ -20,20 +20,22 @@
                             :active="request()->routeIs('misempleados')">
                             {{ __('Ver Empleados') }}
                         </x-jet-nav-link>
-
-                        <x-jet-nav-link href="{{ route('registrarEmpleado') }}"
-                            :active="request()->routeIs('registrarEmpleado')">
-                            {{ __('Nuevo Empleado') }}
+                        <x-jet-nav-link href="{{ route('mailbox') }}"
+                            :active="request()->routeIs('mailbox')">
+                            {{ __('Buzón') }}
                         </x-jet-nav-link>
                     @else
                         <x-jet-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
                             {{ __('User') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('NewMailbox') }}" :active="request()->routeIs('NewMailbox')">
+                            {{ __('Enviar Sugerencias') }}
+                        </x-jet-nav-link>
                     @endif
                     <x-jet-nav-link href="{{ route('listanNotificacion') }}"
-                            :active="request()->routeIs('listanNotificacion')">
-                            {{ __('Notificaciones') }}
-                        </x-jet-nav-link>
+                        :active="request()->routeIs('listanNotificacion')">
+                        {{ __('Notificaciones') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -100,9 +102,15 @@
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button
                                     class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <img class="h-8 w-8 rounded-full object-cover"
-                                        src="{{ Auth::user()->profile_photo_url }}"
-                                        alt="{{ Auth::user()->name }}" />
+                                    @if (Auth::user()->profile_photo_path)
+                                        <img class="h-8 w-8 rounded-full object-cover"
+                                            src="/storage/{{ Auth::user()->profile_photo_path }}"
+                                            alt="{{ Auth::user()->name }}" />
+                                    @else
+                                        <img class="h-8 w-8 rounded-full object-cover"
+                                            src="{{ Auth::user()->profile_photo_url }}"
+                                            alt="{{ Auth::user()->name }}" />
+                                    @endif
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
@@ -191,13 +199,12 @@
                     :active="request()->routeIs('misempleados')">
                     {{ __('Ver mis empleados') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ route('registrarEmpleado') }}"
-                    :active="request()->routeIs('registrarEmpleado')">
-                    {{ __('Nuevo Empleado') }}
-                </x-jet-responsive-nav-link>
             @else
                 <x-jet-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
                     {{ __('user') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
+                    {{ __('mailbox') }}
                 </x-jet-responsive-nav-link>
             @endif
         </div>
@@ -207,8 +214,14 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="flex-shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
-                            alt="{{ Auth::user()->name }}" />
+                        @if (Auth::user()->profile_photo_path)
+                            <img class="h-8 w-8 rounded-full object-cover"
+                                src="/storage/{{ Auth::user()->profile_photo_path }}"
+                                alt="{{ Auth::user()->name }}" />
+                        @else
+                            <img class="h-8 w-8 rounded-full object-cover"
+                                src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                        @endif
                     </div>
                 @endif
 

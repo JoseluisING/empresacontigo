@@ -9,8 +9,11 @@ use App\Http\Livewire\GuardaAvisos;
 use App\Http\Livewire\InformacionClinica;
 use App\Http\Livewire\ListaAvisos;
 use App\Http\Livewire\ListaEmpleados;
+use App\Http\Livewire\ListaMailbox;
 use App\Http\Livewire\RegistrarEmpleado;
 use App\Http\Livewire\RegistrerCompanies;
+use App\Http\Livewire\mailbox;
+use App\Http\Livewire\RegistraMailbox;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,7 @@ Route::view("/aviso", 'aviso')->name('aviso');
 
 //Rutas usuario
 Route::get('/user', Empleado::class)->middleware(['auth', 'isUser'])->name('user');
+Route::get('/NewMailbox', RegistraMailbox::class)->middleware(['auth', 'isUser'])->name('NewMailbox');
 
 //Rutas admin
 Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth', 'isAdmin'])->name('misempleados');
@@ -42,6 +46,8 @@ Route::get('/RegistraEmpresa', RegistrerCompanies::class)->middleware(['auth', '
 Route::get('/NewNotifications', Avisos::class)->middleware(['auth', 'isAdmin'])->name('notificacionAdmin');
 Route::get('/NewNotifications/{id}', Avisos::class)->middleware(['auth', 'isAdmin'])->where('id', '[0-9]+')->name('notificacionAdmin.edit');
 Route::get('/NewNotifications/Elininar/{id_eliminar}', Avisos::class)->middleware(['auth', 'isAdmin'])->where('id', '[0-9]+')->name('notificacionAdmin.eliminar');
+Route::get('/Mailbox', ListaMailbox::class)->middleware(['auth', 'isAdmin'])->name('mailbox');
+
 //Rutas Ambos
 Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth'])->name('clinicalInformation');
 Route::get('/ListaNotifications', ListaAvisos::class)->middleware(['auth'])->name('listanNotificacion');

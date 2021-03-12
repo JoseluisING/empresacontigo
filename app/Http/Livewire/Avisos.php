@@ -12,7 +12,7 @@ class Avisos extends Component
 {
     use AuthorizesRequests;
 
-    public $informacionC;
+    public  $informacionC;
     public $id_aviso;
     protected $rules = [
         'informacionC.tema' => 'required|min:2',
@@ -40,7 +40,7 @@ class Avisos extends Component
     public function save()
     {
         $this->validate();
-        // $this->authorize('update', $this->informacionC);
+        //$this->authorize('update', $this->informacionC);
         $this->informacionC->user_id = Auth::user()->id;
         $this->informacionC->reply = '0';
         $this->informacionC->fecha = now();

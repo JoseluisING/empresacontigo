@@ -16,19 +16,34 @@ class EspecificAvisos extends Component
     public function render()
     {
         $notify_id = request()->input('txtIdNotificacion');
-        //echo $li = notificaciones::all()->where('user_id', '=', $id_user)->join('users', 'users.id', '=', 'notificaciones.user_id')->get();
         $this->li = DB::table('notifications')
             ->join('users', 'users.id', '=', 'notifications.user_id')
-            ->select('users.name', 'users.ap_p', 'users.ap_m', 'users.id_rol', 'notifications.*')
+            ->select(
+                'users.name',
+                'users.ap_p',
+                'users.ap_m',
+                'users.id_rol',
+                'users.profile_photo_path',
+                'users.email',
+                'notifications.*'
+            )
             ->where('notifications.id', '=', $notify_id)
-            ->orderBy('notifications.id','DESC')
+            ->orderBy('notifications.id', 'DESC')
             ->get();
 
         $this->informacionC = DB::table('notifications')
             ->join('users', 'users.id', '=', 'notifications.user_id')
-            ->select('users.name', 'users.ap_p', 'users.ap_m', 'users.id_rol', 'notifications.*')
+            ->select(
+                'users.name',
+                'users.ap_p',
+                'users.ap_m',
+                'users.id_rol',
+                'users.profile_photo_path',
+                'users.email',
+                'notifications.*'
+            )
             ->where('notifications.reply', '=', $notify_id)
-            ->orderBy('notifications.id','DESC')
+            ->orderBy('notifications.id', 'DESC')
             ->get();
         return view('livewire.especific-avisos');
     }

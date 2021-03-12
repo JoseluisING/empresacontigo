@@ -23,6 +23,7 @@ class Empleado extends Model
         'email',
         'id_rol',
         'user_id',
+        'profile_photo_path',
         'password',
     ];
 

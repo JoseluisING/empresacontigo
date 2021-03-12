@@ -15,11 +15,14 @@ class CreateMailbox extends Migration
     {
         Schema::create('mailbox', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('boss_id')->nullable();
             $table->bigInteger('user_id')->nullable();
+            $table->string('tema');
             $table->string('sugerencias');
-            $table->string('estado');
+            $table->string('estado')->nullable();
             $table->timestamps();
 
+            $table->foreign('boss_id')->references('id')->on('users');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
