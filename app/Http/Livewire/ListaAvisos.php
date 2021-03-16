@@ -14,7 +14,7 @@ class ListaAvisos extends Component
         $id_user = Auth::user()->id;
         $user_id = Auth::user()->user_id;
         //echo $li = notificaciones::all()->where('user_id', '=', $id_user)->join('users', 'users.id', '=', 'notificaciones.user_id')->get();
-        $li = DB::table('notifications')
+        $listaAdmin = DB::table('notifications')
             ->join('users', 'users.id', '=', 'notifications.user_id')
             ->select(
                 'users.name',
@@ -47,6 +47,6 @@ class ListaAvisos extends Component
             ->orderBy('notifications.id', 'DESC')
             ->get();
 
-        return view('livewire.lista-avisos', compact('li', 'listaE'));
+        return view('livewire.lista-avisos', compact('listaAdmin', 'listaE'));
     }
 }
