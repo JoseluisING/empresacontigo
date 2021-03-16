@@ -73,7 +73,7 @@
 @if (session('btnCrear') == 'ok')
     <script>
         Swal.fire(
-            '¡Exito!',
+            '¡Felicidades!',
             'Tu sugerencia fue enviada correctamente',
             'success'
         );
