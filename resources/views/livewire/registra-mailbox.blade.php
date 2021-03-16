@@ -62,3 +62,22 @@
         </div>
     </div>
 </div>
+
+
+{{-- Script para las aletras --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{{-- Fin de scripts --}}
+
+@if (session('btnCrear') == 'ok')
+    <script>
+        Swal.fire(
+            '¡Exito!',
+            'Tu sugerencia fue enviada correctamente',
+            'success'
+        );
+
+    </script>
+
+@endif

@@ -44,6 +44,8 @@ class RegistrerCompanies extends Component
         $this->validate();
         $this->informacionC->user_id = Auth::user()->id;
         $this->informacionC->save();
-        return redirect('dashboard');
+        //Alerta sweet
+        session()->flash('btnCrear', 'ok');
+        return redirect(route('registraCompañia'));
     }
 }

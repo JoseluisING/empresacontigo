@@ -25,6 +25,7 @@ class Avisos extends Component
         } elseif (is_null($id)) {
             $this->informacionC = notificaciones::find($id_eliminar);
             $this->informacionC->delete();
+            //Alerta Sweet
             session()->flash('btnEliminar', 'ok');
             return redirect(route('listanNotificacion'));
         } else {
@@ -46,6 +47,7 @@ class Avisos extends Component
         $this->informacionC->fecha = now();
         $this->informacionC->hora = now();
         $this->informacionC->save();
+        //Alerta sweet
         session()->flash('btnCrear', 'ok');
         return redirect(route('listanNotificacion'));
     }

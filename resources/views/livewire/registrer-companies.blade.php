@@ -1,4 +1,3 @@
-
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
@@ -36,7 +35,7 @@
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form action="#"  wire:submit.prevent="save" method="POST">
+                        <form action="#" wire:submit.prevent="save" method="POST">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
@@ -82,11 +81,34 @@
                                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                         <button type="submit"
                                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                                Guardar
-                                            </button>
-                                        </div>
+                                            Guardar
+                                        </button>
                                     </div>
-                            </form>
-                        </div>
+                                </div>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{-- Script para las aletras --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{{-- Fin de scripts --}}
+
+@if (session('btnCrear') == 'ok')
+    <script>
+        Swal.fire(
+            '¡Información Guarda!',
+            'Tu información ha sido almacenada correctamente',
+            'success'
+        );
+
+    </script>
+
+@endif

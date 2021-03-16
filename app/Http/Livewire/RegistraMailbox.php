@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class RegistraMailbox extends Component
 {
-    public $informacionC, $id_user, $boss_id,$li;
+    public $informacionC, $id_user, $boss_id, $li;
 
     protected $rules = [
         'informacionC.tema' => 'required|min:2',
@@ -37,6 +37,8 @@ class RegistraMailbox extends Component
         $this->informacionC->boss_id = Auth::user()->user_id;
         $this->informacionC->estado = '0';
         $this->informacionC->save();
-        return redirect('dashboard');
+        //Alerta sweet
+        session()->flash('btnCrear', 'ok');
+        return redirect(route('NewMailbox'));
     }
 }

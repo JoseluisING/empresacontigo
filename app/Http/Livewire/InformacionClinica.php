@@ -46,6 +46,8 @@ class InformacionClinica extends Component
         $this->informacionC->user_id = Auth::user()->id;
         $this->informacionC->estatus = '1';
         $this->informacionC->save();
-        return redirect('dashboard');
+        //Alerta sweet
+        session()->flash('btnCrear', 'ok');
+        return redirect(route('clinicalInformation'));
     }
 }
