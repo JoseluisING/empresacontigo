@@ -15,6 +15,7 @@ use App\Http\Livewire\RegistrerCompanies;
 use App\Http\Livewire\mailbox;
 use App\Http\Livewire\RegistraMailbox;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Livewire\InfoEncuestas;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::view("/aviso", 'aviso')->name('aviso');
 //Rutas usuario
 Route::get('/user', Empleado::class)->middleware(['auth', 'isUser'])->name('user');
 Route::get('/NewMailbox', RegistraMailbox::class)->middleware(['auth', 'isUser'])->name('NewMailbox');
+Route::get('/InfoEncuestas', InfoEncuestas::class)->middleware(['auth', 'isUser'])->name('infoEncuestas');
 
 //Rutas admin
 Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth', 'isAdmin'])->name('misempleados');
