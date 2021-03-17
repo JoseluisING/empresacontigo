@@ -16,7 +16,7 @@ class CreateSolutions2 extends Migration
         Schema::create('solutions_2', function (Blueprint $table) {
             $table->id();
             $table->string('nivel')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->string('descripcion','1000')->nullable();
             $table->timestamps();
         });
     }

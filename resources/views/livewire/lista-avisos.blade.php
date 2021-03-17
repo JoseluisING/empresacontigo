@@ -64,7 +64,7 @@
 
                                     <a href="{{ route('notificacionAdmin.eliminar', $lisAdmin->id) }}"
                                         class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline "
-                                        onclick="btnEliminar()" id="btnEliminar">
+                                        id="btnEliminar">
                                         Eliminar
                                     </a>
                                 @endif
