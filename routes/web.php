@@ -47,6 +47,7 @@ Route::get('/NewNotifications', Avisos::class)->middleware(['auth', 'isAdmin'])-
 Route::get('/NewNotifications/{id}', Avisos::class)->middleware(['auth', 'isAdmin'])->where('id', '[0-9]+')->name('notificacionAdmin.edit');
 Route::get('/NewNotifications/Elininar/{id_eliminar}', Avisos::class)->middleware(['auth', 'isAdmin'])->where('id', '[0-9]+')->name('notificacionAdmin.eliminar');
 Route::get('/Mailbox', ListaMailbox::class)->middleware(['auth', 'isAdmin'])->name('mailbox');
+Route::get('/MyEmpleados/Eliminar/{id_eliminar}', ListaEmpleados::class)->middleware(['auth', 'isAdmin'])->where('id', '[0-9]+')->name('lista.eliminar');
 
 //Rutas Ambos
 Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth'])->name('clinicalInformation');

@@ -1,3 +1,8 @@
+{{-- Script para las aletras --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+{{-- Fin de scripts --}}
 <div class="py-5">
     <div class="flex items-center justify-center">
         <div class="m-3">
@@ -12,6 +17,7 @@
     </div>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
 
             <!-- This example requires Tailwind CSS v2.0+ -->
             <div class="flex flex-col">
@@ -37,9 +43,7 @@
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Curp
                                         </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Editar</span>
-                                        </th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -83,20 +87,63 @@
                                                 {{ $lis->curp }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href=" {{ $lis->id }}"
-                                                    class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                                                <!-- <a href=" 
+                                                    class="text-indigo-600 hover:text-indigo-900">Eliminar</a> -->
+                                                    @if (Auth::user()->id_rol == 1)
+                                                    <a href="{{ route('lista.eliminar', $lis->id) }}"
+                                                        class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline "
+                                                        id="btnEliminar">
+                                                        Eliminar
+                                                    </a>
+                                                    @endif
                                             </td>
                                         </tr>
                                     @endforeach
                                     <!-- More items... -->
+                                
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                
+            </div>
         </div>
     </div>
 </div>
+@if (session('btnEliminar') == 'ok')
+<script>
+    Swal.fire(
+        '¡Eliminado!',
+        'Tu empleado ha sido eliminado',
+        'success'
+    );
+
+</script>
+@endif
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#btnEliminar', function(e) {
+
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Estas seguro?',
+                text: "No podras revertir cambios!",
+                icon: 'Cuidado',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = $(this).attr('href');
+
+                }
+            })
+        });
+    });
+
+</script>
