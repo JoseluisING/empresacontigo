@@ -17,17 +17,6 @@ class userSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Anónimo',
-            'ap_p' => 'Anónimo',
-            'ap_m' => 'Anónimo',
-            'email' => Str::random(10).'@gmail.com',
-            'cedula' => 'Anónimo',
-            'rfc' => 'Anónimo',
-            'curp' => 'Anónimo',
-            'password' => Hash::make('12345678'),
-            'id_rol' => '2',
-        ]);
-        DB::table('users')->insert([
             'name' => 'Juan Alberto',
             'ap_p' => 'Guzman',
             'ap_m' => 'Gomez',
@@ -48,7 +37,30 @@ class userSeeder extends Seeder
             'curp' => 'ALDO001203HDFLADO1',
             'password' => Hash::make('estrella234'),
             'id_rol' => '2',
-            'user_id' => '2',
+            'user_id' => '1',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Lizeth',
+            'ap_p' => 'Parra',
+            'ap_m' => 'Lopez',
+            'email' => 'liz@gmail.com',
+            'cedula' => '11648835',
+            'rfc' => 'PALL000421',
+            'curp' => 'PALL000421MMCRPZA4',
+            'password' => Hash::make('estrella234'),
+            'id_rol' => '1',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Alan Emmanuel',
+            'ap_p' => 'Hernandez',
+            'ap_m' => 'Ugalde',
+            'email' => 'alan@gmail.com',
+            'cedula' => '53884611',
+            'rfc' => 'HEUA000110',
+            'curp' => 'HEUA000110HDFLADO1',
+            'password' => Hash::make('estrella234'),
+            'id_rol' => '2',
+            'user_id' => '3',
         ]);
     }
 }
