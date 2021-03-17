@@ -6,7 +6,7 @@
 <div class="py-5">
     <div class="flex items-center justify-center">
         <div class="m-3">
-            <a href="{{ route('registrarEmpleado') }}"
+            <a href="{{ url('registro/empleado') }}"
                 class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
                 <span class="mr-2">Nuevo Empleado</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24">
