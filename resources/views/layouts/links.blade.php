@@ -33,11 +33,7 @@
                 </header>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-
+            @yield('content')
         </div>
 
         @stack('modals')

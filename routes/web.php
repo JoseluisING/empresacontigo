@@ -14,6 +14,7 @@ use App\Http\Livewire\RegistrarEmpleado;
 use App\Http\Livewire\RegistrerCompanies;
 use App\Http\Livewire\mailbox;
 use App\Http\Livewire\RegistraMailbox;
+use App\Http\Controllers\EmpleadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,8 @@ Route::post('/GuardaAviso', GuardaAvisos::class)->middleware(['auth'])->name('gu
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//Registro de empleados 2
+
+Route::resource('/registro/empleado', EmpleadosController::class);
