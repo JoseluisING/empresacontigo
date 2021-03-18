@@ -38,7 +38,6 @@ Route::view("/elementos", 'elementos')->name('elementos');
 Route::view("/aviso", 'aviso')->name('aviso');
 
 //Rutas usuario
-Route::get('/user', Empleado::class)->middleware(['auth', 'isUser'])->name('user');
 Route::get('/NewMailbox', RegistraMailbox::class)->middleware(['auth', 'isUser'])->name('NewMailbox');
 Route::get('/InfoEncuestas', InfoEncuestas::class)->middleware(['auth', 'isUser'])->name('infoEncuestas');
 

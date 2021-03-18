@@ -12,14 +12,14 @@ use Livewire\WithPagination;
 
 class ListaEmpleados extends Component
 {
-    
+
     use AuthorizesRequests;
     use WithPagination;
     public $elis;
 
     public function mount($id = null, $id_eliminar = null)
     {
-         
+
         if (is_null($id) && is_null($id_eliminar)) {
             $this->elis = new Empleado();
         } elseif (is_null($id)) {
@@ -34,8 +34,8 @@ class ListaEmpleados extends Component
     }
     public function render()
     {
-        $id_user= Auth::user()->id;
-        $li = Empleado::paginate(15)->where('user_id',$id_user)->where('id_rol',2);
+        $id_user = Auth::user()->id;
+        $li = Empleado::paginate(15)->where('user_id', $id_user)->where('id_rol', 2);
         return view('livewire.lista-empleados', compact('li'));
     }
 }
