@@ -1,405 +1,264 @@
 <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
 @if (Auth::user()->id_rol == 1)
     <!-- component -->
-    <div class="font-sans bg-white flex flex-col min-h-screen w-full">
-        <div>
+    <!-- This is an example component -->
+    <div>
+        <section class=" text-gray-200 bg-gray-900">
+            <div class="max-w-6xl mx-auto px-5 py-24 ">
+                <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+                    <h1
+                        class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">
+                        @if ($nomEmpresa = App\Models\companies::select('name')
+        ->where('user_id', '=', Auth::user()->id)
+        ->get())
+                            @foreach ($nomEmpresa as $item)
+                                {{ $item->name }}
+                            @endforeach
 
-            <div class="bg-gray-200 md:overflow-hidden">
-                <div class="px-4 py-16">
-                    <div class="relative w-full md:max-w-2xl md:mx-auto text-center">
-                        <h1 class="font-bold text-gray-700 text-xl sm:text-2xl md:text-5xl leading-tight mb-6">
-                            Bienvenido(a) {{ Auth::user()->name . ' ' . Auth::user()->ap_p . ' ' . Auth::user()->ap_m }}
-                        </h1>
-
-                        <p class="text-gray-600 md:text-xl md:px-18">
-                            Evalúa035, es el sistema de evaluación
-                            organizacional ideal para cumplir, implementar y administrar la
-                            nueva NOM-035-STPS-2018 que te ayuda a llevar un control de
-                            cada trabajador, y a prevenir riesgos psicosociales en tu empresa.
-                        </p>
-
-                        <div
-                            class="hidden md:block h-40 w-40 rounded-full bg-blue-800 absolute right-0 bottom-0 -mb-64 -mr-48">
-                        </div>
-
-                        <div
-                            class="hidden md:block h-5 w-5 rounded-full bg-yellow-500 absolute top-0 right-0 -mr-40 mt-32">
-                        </div>
-                    </div>
+                        @endif
+                    </h1>
+                    <h3 class="">
+                        -{{ Auth::user()->ap_p . ' ' . Auth::user()->ap_m . ' ' . Auth::user()->name }}
+                    </h3>
+                    <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                        Enseigner c'est apprendre deux fois. J'aime partager mes connaissances et mes découvertses.
+                    </p>
                 </div>
 
-                <svg class="fill-current bg-gray-200 text-white hidden md:block" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1440 320">
-                    <path fill-opacity="1"
-                        d="M0,64L120,85.3C240,107,480,149,720,149.3C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
-                    </path>
-                </svg>
-            </div>
 
-            <div class="max-w-4xl mx-auto bg-white shadow-lg relative z-20 hidden md:block"
-                style="margin-top: -320px; border-radius: 20px;">
-                <div class="h-20 w-20 rounded-full bg-yellow-500 absolute top-0 left-0 -ml-10 -mt-10"
-                    style="z-index: -1;"></div>
 
-                <div class="h-5 w-5 rounded-full bg-blue-500 absolute top-0 left-0 -ml-32 mt-12" style="z-index: -1;">
-                </div>
-
-                <div class="h-10 bg-white rounded-t-lg border-b border-gray-100"></div>
-                <div class="flex" style="height: 550px;">
-                    <div class="w-32 bg-gray-200 p-6 overflow-hidden rounded-bl-lg">
-                        <div class="text-center mb-10">
-                            <div class="w-10 h-10 rounded-full bg-blue-800 mb-4 mx-auto"></div>
-                            <div class="h-2 rounded-full bg-blue-800"></div>
-                        </div>
-
-                        <div class="text-center mb-10">
-                            <div class="w-10 h-10 rounded-full bg-gray-300 mb-4 mx-auto"></div>
-                            <div class="h-2 rounded-full bg-gray-300"></div>
-                        </div>
-
-                        <div class="text-center mb-10">
-                            <div class="w-10 h-10 rounded-full bg-gray-300 mb-4 mx-auto"></div>
-                            <div class="h-2 rounded-full bg-gray-300"></div>
-                        </div>
-
-                        <div class="text-center">
-                            <div class="w-10 h-10 rounded-full bg-gray-300 mb-4 mx-auto"></div>
-                            <div class="h-2 rounded-full bg-gray-300"></div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-
-                        <div class="mt-6 text-gray-500">
-                            @if (!App\Models\companies::where('user_id', '=', Auth::user()->id)->first())
-                                <div class="flex bg-red-lighter max-w-sm mb-4">
-                                    <div class="w-16 bg-red">
-                                        <div class="p-4">
-                                            <svg class="h-8 w-8 text-white fill-current"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                <path
-                                                    d="M437.019 74.981C388.667 26.629 324.38 0 256 0S123.333 26.63 74.981 74.981 0 187.62 0 256s26.629 132.667 74.981 181.019C123.332 485.371 187.62 512 256 512s132.667-26.629 181.019-74.981C485.371 388.667 512 324.38 512 256s-26.629-132.668-74.981-181.019zM256 470.636C137.65 470.636 41.364 374.35 41.364 256S137.65 41.364 256 41.364 470.636 137.65 470.636 256 374.35 470.636 256 470.636z"
-                                                    fill="#FFF" />
-                                                <path
-                                                    d="M341.22 170.781c-8.077-8.077-21.172-8.077-29.249 0L170.78 311.971c-8.077 8.077-8.077 21.172 0 29.249 4.038 4.039 9.332 6.058 14.625 6.058s10.587-2.019 14.625-6.058l141.19-141.191c8.076-8.076 8.076-21.171 0-29.248z"
-                                                    fill="#FFF" />
-                                                <path
-                                                    d="M341.22 311.971l-141.191-141.19c-8.076-8.077-21.172-8.077-29.248 0-8.077 8.076-8.077 21.171 0 29.248l141.19 141.191a20.616 20.616 0 0 0 14.625 6.058 20.618 20.618 0 0 0 14.625-6.058c8.075-8.077 8.075-21.172-.001-29.249z"
-                                                    fill="#FFF" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="w-auto text-black opacity-75 items-center p-4">
-                                        <span class="text-lg font-bold pb-4">
-                                            !Detente!
-                                        </span>
-                                        <p class="leading-tight">
-                                            Al parecer no has terminado tu registro completo.
-                                            <a href="{{ route('registraCompañia') }}" class="text-pink-600">Completa
-                                                tus datos
-                                                Empresariales!!!</a>
-                                        </p>
-                                    </div>
-                                </div>
-
-                            @endif
-                            @if (!App\Models\InfoClinica::where('user_id', '=', Auth::user()->id)->first())
-                                <div class="flex bg-red-lighter max-w-md mb-4">
-                                    <div class="w-16 bg-red">
-                                        <div class="p-4">
-                                            <svg class="h-8 w-8 text-white fill-current"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                <path
-                                                    d="M437.019 74.981C388.667 26.629 324.38 0 256 0S123.333 26.63 74.981 74.981 0 187.62 0 256s26.629 132.667 74.981 181.019C123.332 485.371 187.62 512 256 512s132.667-26.629 181.019-74.981C485.371 388.667 512 324.38 512 256s-26.629-132.668-74.981-181.019zM256 470.636C137.65 470.636 41.364 374.35 41.364 256S137.65 41.364 256 41.364 470.636 137.65 470.636 256 374.35 470.636 256 470.636z"
-                                                    fill="#FFF" />
-                                                <path
-                                                    d="M341.22 170.781c-8.077-8.077-21.172-8.077-29.249 0L170.78 311.971c-8.077 8.077-8.077 21.172 0 29.249 4.038 4.039 9.332 6.058 14.625 6.058s10.587-2.019 14.625-6.058l141.19-141.191c8.076-8.076 8.076-21.171 0-29.248z"
-                                                    fill="#FFF" />
-                                                <path
-                                                    d="M341.22 311.971l-141.191-141.19c-8.076-8.077-21.172-8.077-29.248 0-8.077 8.076-8.077 21.171 0 29.248l141.19 141.191a20.616 20.616 0 0 0 14.625 6.058 20.618 20.618 0 0 0 14.625-6.058c8.075-8.077 8.075-21.172-.001-29.249z"
-                                                    fill="#FFF" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="w-auto text-black opacity-75 items-center p-4">
-                                        <span class="text-lg font-bold pb-4">
-                                            !Detente!
-                                        </span>
-                                        <p class="leading-tight">
-                                            Al parecer no has terminado tu registro completo.
-                                            <a href="{{ route('clinicalInformation') }}"
-                                                class="text-pink-600">Completa tus datos
-                                                Clinicos!!!</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="flex-1 py-6 px-8">
-                        <div class="flex flex-wrap -mx-4">
-                            <div class="w-2/3 px-4">
-                                <div class="flex flex-wrap -mx-4 mb-10">
-                                    <div class="w-1/4 px-4">
-                                        <div class="text-center mb-10 bg-white shadow rounded-lg p-6">
-                                            <div class="w-10 h-10 rounded-full bg-green-600 mb-4 mx-auto"></div>
-                                            Hola
-                                        </div>
-                                    </div>
-                                    <div class="w-1/4 px-4">
-                                        <div class="text-center mb-10 bg-white shadow rounded-lg p-6">
-                                            <div class="w-10 h-10 rounded-full bg-blue-600 mb-4 mx-auto"></div>
-                                            <div class="h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                    </div>
-                                    <div class="w-1/4 px-4">
-                                        <div class="text-center mb-10 bg-white shadow rounded-lg p-6">
-                                            <div class="w-10 h-10 rounded-full bg-orange-400 mb-4 mx-auto"></div>
-                                            <div class="h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                    </div>
-                                    <div class="w-1/4 px-4">
-                                        <div class="text-center mb-10 bg-white shadow rounded-lg p-6">
-                                            <div class="w-10 h-10 rounded-full bg-blue-800 mb-4 mx-auto"></div>
-                                            <div class="h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="h-32 percentage mb-10 pt-2 text-justify">
-                                    La nueva Normativa Oficial Mexicana: NOM-035
-                                    proporciona a las directivas de las empresas la capacidad de identificar, prevenir,
-                                    y en su caso, combatir, las situaciones de estrés laboral y riesgo psicológico que
-                                    puedan desembocar en factores de riesgo psicosocial traducido en bajo desempeño y
-                                    poco orden su entorno organizacional.
-                                </div>
-
-                                <div class="w-full flex flex-wrap mb-6">
-                                    <div class="w-1/2">
-                                        <div class="flex items-center">
-                                            <div class="h-8 w-8 rounded-full bg-gray-200 mr-4"></div>
-                                            <div>
-                                                <div class="h-2 w-16 bg-gray-200 mb-1 rounded-full"></div>
-                                                <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-1/2">
-                                        <div class="flex items-center">
-                                            <div class="h-8 w-8 rounded-full bg-gray-200 mr-4"></div>
-                                            <div>
-                                                <div class="h-2 w-16 bg-gray-200 mb-1 rounded-full"></div>
-                                                <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="w-full flex flex-wrap">
-                                    <div class="w-1/2">
-                                        <div class="flex items-center">
-                                            <div class="h-8 w-8 rounded-full bg-gray-200 mr-4"></div>
-                                            <div>
-                                                <div class="h-2 w-16 bg-gray-200 mb-1 rounded-full"></div>
-                                                <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="w-1/2">
-                                        <div class="flex items-center">
-                                            <div class="h-8 w-8 rounded-full bg-gray-200 mr-4"></div>
-                                            <div>
-                                                <div class="h-2 w-16 bg-gray-200 mb-1 rounded-full"></div>
-                                                <div class="h-2 w-10 bg-gray-100 rounded-full"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-1/3 px-4">
-                                <div class="rounded-lg shadow-lg p-6">
-                                    <div class="block w-12 h-2 rounded-full bg-gray-200 mb-6"></div>
-
-                                    <svg height="150" width="150" viewBox="0 0 20 20" class="mx-auto mb-12">
-                                        <circle r="10" cx="10" cy="10" fill="#4299e1" />
-                                        <circle r="5" cx="10" cy="10" fill="transparent" stroke="#2b6cb0"
-                                            stroke-width="10" stroke-dasharray="11 31.4"
-                                            transform="rotate(-90) translate(-20)" />
+                @if (!App\Models\InfoClinica::where('user_id', '=', Auth::user()->id)->first())
+                    <div class="p-6 sm:px-20 border-b border-gray-200">
+                        <div class="flex bg-red-lighter max-w-md mb-4">
+                            <div class="w-16 bg-red">
+                                <div class="p-4">
+                                    <svg class="h-8 w-8 text-white fill-current" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M437.019 74.981C388.667 26.629 324.38 0 256 0S123.333 26.63 74.981 74.981 0 187.62 0 256s26.629 132.667 74.981 181.019C123.332 485.371 187.62 512 256 512s132.667-26.629 181.019-74.981C485.371 388.667 512 324.38 512 256s-26.629-132.668-74.981-181.019zM256 470.636C137.65 470.636 41.364 374.35 41.364 256S137.65 41.364 256 41.364 470.636 137.65 470.636 256 374.35 470.636 256 470.636z"
+                                            fill="#FFF" />
+                                        <path
+                                            d="M341.22 170.781c-8.077-8.077-21.172-8.077-29.249 0L170.78 311.971c-8.077 8.077-8.077 21.172 0 29.249 4.038 4.039 9.332 6.058 14.625 6.058s10.587-2.019 14.625-6.058l141.19-141.191c8.076-8.076 8.076-21.171 0-29.248z"
+                                            fill="#FFF" />
+                                        <path
+                                            d="M341.22 311.971l-141.191-141.19c-8.076-8.077-21.172-8.077-29.248 0-8.077 8.076-8.077 21.171 0 29.248l141.19 141.191a20.616 20.616 0 0 0 14.625 6.058 20.618 20.618 0 0 0 14.625-6.058c8.075-8.077 8.075-21.172-.001-29.249z"
+                                            fill="#FFF" />
                                     </svg>
-
-                                    <div class="flex flex-wrap -mx-2 mb-10">
-                                        <div class="w-1/3 px-2">
-                                            <div class="block h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                        <div class="w-1/3 px-2">
-                                            <div class="block h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                        <div class="w-1/3 px-2">
-                                            <div class="block h-2 rounded-full bg-gray-200"></div>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
+                            <div class="w-auto text-black opacity-75 items-center p-4">
+                                <span class="text-lg font-bold pb-4">
+                                    !Detente!
+                                </span>
+                                <p class="leading-tight">
+                                    Al parecer no has terminado tu registro completo.
+                                    <a href="{{ route('clinicalInformation') }}" class="text-pink-600">Completa tus
+                                        datos
+                                        Clinicos!!!</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                <!-- component -->
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </div>
 
-                                <div class="flex justify-between my-10">
-                                    <div>
-                                        <div class="h-2 w-10 bg-gray-300 rounded-full mb-2"></div>
-                                        <div class="h-2 w-16 bg-gray-300 rounded-full mb-2"></div>
-                                        <div class="h-2 w-8 bg-gray-300 rounded-full"></div>
-                                    </div>
-                                    <div>
-                                        <div class="ml-auto h-2 w-5 bg-gray-300 rounded-full mb-2"></div>
-                                        <div class="ml-auto h-2 w-6 bg-gray-300 rounded-full mb-2"></div>
-                                        <div class="ml-auto h-2 w-8 bg-gray-300 rounded-full"></div>
-                                    </div>
-                                </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="text-sm text-gray-500">Users</div>
+                                <div class="font-bold text-lg">
 
-                                <div class="text-right flex justify-end">
-                                    <div class="rounded-lg h-8 w-20 px-4 bg-gray-200 mr-2"></div>
-                                    <div class="rounded-lg h-8 w-20 px-4 bg-green-400"></div>
+                                    @if ($numUser = App\Models\Empleado::select('id_rol')
+        ->where('user_id', '=', Auth::user()->id)
+        ->count('id_rol', '=', '2'))
+                                        {{ $numUser }}
+
+
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="px-4 md:hidden">
-                <div class="-mt-10 max-w-4xl mx-auto bg-white shadow-lg relative z-20" style="border-radius: 20px;">
-                    <div class="h-10 bg-white rounded-t-lg border-b border-gray-100"></div>
-                    <div class="flex" style="height: 340px;">
-                        <div class="w-16 bg-gray-200 px-2 py-6 overflow-hidden rounded-bl-lg">
-                            <div class="text-center mb-6">
-                                <div class="w-4 h-4 rounded-full bg-blue-800 mb-2 mx-auto"></div>
-                                <div class="h-2 w-8 mx-auto rounded-full bg-blue-800"></div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                </svg>
                             </div>
-                            <div class="text-center mb-6">
-                                <div class="w-4 h-4 rounded-full bg-gray-300 mb-2 mx-auto"></div>
-                                <div class="h-2 w-8 mx-auto rounded-full bg-gray-300"></div>
-                            </div>
-                            <div class="text-center mb-6">
-                                <div class="w-4 h-4 rounded-full bg-gray-300 mb-2 mx-auto"></div>
-                                <div class="h-2 w-8 mx-auto rounded-full bg-gray-300"></div>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-4 h-4 rounded-full bg-gray-300 mb-2 mx-auto"></div>
-                                <div class="h-2 w-8 mx-auto rounded-full bg-gray-300"></div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="text-sm text-gray-500">Orders</div>
+                                <div class="font-bold text-lg">230</div>
                             </div>
                         </div>
-                        <div class="flex-1 py-6 px-4">
-                            <div class="flex flex-wrap -mx-2">
-                                <div class="w-1/3 px-2">
-                                    <div class="text-center mb-6 bg-white shadow rounded-lg px-2 py-3">
-                                        <div class="w-4 h-4 rounded-full bg-green-600 mb-2 mx-auto"></div>
-                                        <div class="h-2 w-8 mx-auto rounded-full bg-gray-200"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/3 px-2">
-                                    <div class="text-center mb-6 bg-white shadow rounded-lg px-2 py-3">
-                                        <div class="w-4 h-4 rounded-full bg-blue-600 mb-2 mx-auto"></div>
-                                        <div class="h-2 w-8 mx-auto rounded-full bg-gray-200"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/3 px-2">
-                                    <div class="text-center mb-6 bg-white shadow rounded-lg px-2 py-3">
-                                        <div class="w-4 h-4 rounded-full bg-orange-600 mb-2 mx-auto"></div>
-                                        <div class="h-2 w-8 mx-auto rounded-full bg-gray-200"></div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="text-sm text-gray-500">New Clients</div>
+                                <div class="font-bold text-lg">190</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="text-sm text-gray-500">Revenue</div>
+                                <div class="font-bold text-lg">$ 32k</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="flex flex-wrap -m-4">
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                <svg class=" fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512">
+                                    <path
+                                        d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-lg  font-medium title-font mb-2">L'essentiel du HTML5 </h2>
+                            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co,
+                                subway tile poke farm.</p>
+
+                            <div class="text-center mt-2 leading-none flex justify-between w-full">
+                                <span class=" mr-3 inline-flex items-center leading-none text-sm  py-1 ">
+                                    <svg class=" fill-current w-4 h-4 mr-2 text-blue-500"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" />
+                                    </svg>
+                                    40 min
+                                </span>
+                                <span class=" inline-flex items-center leading-none text-sm">
+                                    <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#D8D8D8"
+                                                d="M9.2 6.583v11.08h3.5V6.583zm6.4 11.084h3.5V3h-3.5z" />
+                                            <path fill="#667EEA" d="M2.6 17.667h3.5v-7.334H2.6z" />
+                                        </g>
+                                    </svg>
+                                    Débutant
+                                </span>
                             </div>
 
-                            <div class="flex flex-wrap -mx-2 mb-6">
-                                <div class="w-1/2 px-2">
-                                    <div class="shadow h-24 p-2 rounded-lg">
-                                        <div class="h-20 percentage pt-2">
-                                            <div class="h-2 bg-gray-200 w-24 mb-2 block"></div>
-                                            <div class="h-2 bg-gray-200 w-12 mb-2 block"></div>
-                                            <div class="h-2 bg-gray-200 w-20 mb-2 block"></div>
-                                            <div class="h-2 bg-gray-200 w-8 mb-2 block"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-1/2 px-2">
-                                    <div class="rounded-lg shadow px-2 py-2">
-                                        <div class="block w-8 h-2 rounded-full bg-gray-200 mb-2"></div>
+                        </div>
+                    </div>
 
-                                        <div class="mb-2">
-                                            <svg height="50" width="50" viewBox="0 0 20 20" class="mx-auto">
-                                                <circle r="10" cx="10" cy="10" fill="#ddd" />
-                                                <circle r="5" cx="10" cy="10" fill="transparent" stroke="#eee"
-                                                    stroke-width="10" stroke-dasharray="11 31.4"
-                                                    transform="rotate(-90) translate(-20)" />
-                                            </svg>
-                                        </div>
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 italic">
+                                <span class="font-bold text-sm ">
+                                    Php
+                                </span>
+                            </div>
+                            <h2 class="text-lg  font-medium title-font mb-2">Guide complet des dates en PHP</h2>
+                            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co,
+                                subway tile poke farm.</p>
 
-                                        <div class="flex flex-wrap -mx-2">
-                                            <div class="w-1/3 px-2">
-                                                <div class="block h-2 rounded-full bg-gray-200"></div>
-                                            </div>
-                                            <div class="w-1/3 px-2">
-                                                <div class="block h-2 rounded-full bg-gray-200"></div>
-                                            </div>
-                                            <div class="w-1/3 px-2">
-                                                <div class="block h-2 rounded-full bg-gray-200"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="text-center mt-2 leading-none flex justify-between w-full">
+                                <span class=" mr-3 inline-flex items-center leading-none text-sm  py-1 ">
+                                    <svg class=" fill-current w-4 h-4 mr-2 text-blue-500"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" />
+                                    </svg>
+                                    40 min
+                                </span>
+                                <span class=" inline-flex items-center leading-none text-sm">
+                                    <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#D8D8D8"
+                                                d="M9.2 6.583v11.08h3.5V6.583zm6.4 11.084h3.5V3h-3.5z" />
+                                            <path fill="#667EEA" d="M2.6 17.667h3.5v-7.334H2.6z" />
+                                        </g>
+                                    </svg>
+                                    Débutant
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/3 md:w-1/2 p-4">
+                        <div class="border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                <svg class=" fill-current h-6 w-6 " viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>CSS3 icon</title>
+                                    <path
+                                        d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-lg  font-medium title-font mb-2">CSS avancé</h2>
+                            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co,
+                                subway tile poke farm.</p>
+
+                            <div class="text-center mt-2 leading-none flex justify-between w-full">
+                                <span class=" mr-3 inline-flex items-center leading-none text-sm  py-1 ">
+                                    <svg class=" fill-current w-4 h-4 mr-2 text-blue-500"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z" />
+                                    </svg>
+                                    2h 40 min
+                                </span>
+                                <span class=" inline-flex items-center leading-none text-sm">
+
+                                    <svg width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path fill="#D8D8D8" d="M15.6 17.667h3.5V3h-3.5z" />
+                                            <path fill="#667EEA" d="M9.2 6.583v11.08h3.5V6.583z" />
+                                            <path fill="#667EEA" d="M2.6 17.667h3.5v-7.334H2.6z" />
+                                        </g>
+                                    </svg>
+                                    Débutant
+                                </span>
                             </div>
 
-                            <div class="w-full flex flex-wrap mb-2">
-                                <div class="w-1/2">
-                                    <div class="flex items-center">
-                                        <div class="h-4 w-4 rounded-full bg-gray-200 mr-4"></div>
-                                        <div>
-                                            <div class="h-2 w-10 bg-gray-200 mb-1 rounded-full"></div>
-                                            <div class="h-2 w-6 bg-gray-100 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-1/2">
-                                    <div class="flex items-center">
-                                        <div class="h-4 w-4 rounded-full bg-gray-200 mr-4"></div>
-                                        <div>
-                                            <div class="h-2 w-10 bg-gray-200 mb-1 rounded-full"></div>
-                                            <div class="h-2 w-6 bg-gray-100 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="w-full flex flex-wrap mb-6">
-                                <div class="w-1/2">
-                                    <div class="flex items-center">
-                                        <div class="h-4 w-4 rounded-full bg-gray-200 mr-4"></div>
-                                        <div>
-                                            <div class="h-2 w-10 bg-gray-200 mb-1 rounded-full"></div>
-                                            <div class="h-2 w-6 bg-gray-100 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-1/2">
-                                    <div class="flex items-center">
-                                        <div class="h-4 w-4 rounded-full bg-gray-200 mr-4"></div>
-                                        <div>
-                                            <div class="h-2 w-10 bg-gray-200 mb-1 rounded-full"></div>
-                                            <div class="h-2 w-6 bg-gray-100 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="text-right flex justify-end">
-                                <div class="rounded-lg h-6 w-16 px-4 bg-gray-200 mr-2"></div>
-                                <div class="rounded-lg h-6 w-16 px-4 bg-green-400"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </div>
-
-
 
 
     <!-- DASHBOARD Usuario -->
