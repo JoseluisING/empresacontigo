@@ -20,9 +20,6 @@
                     <h3 class="">
                         -{{ Auth::user()->ap_p . ' ' . Auth::user()->ap_m . ' ' . Auth::user()->name }}
                     </h3>
-                    <p class="lg:w-1/2 w-full leading-relaxed text-base">
-                        Enseigner c'est apprendre deux fois. J'aime partager mes connaissances et mes découvertses.
-                    </p>
                 </div>
 
 
@@ -75,7 +72,7 @@
                             </div>
 
                             <div class="flex flex-col flex-grow ml-4">
-                                <div class="text-sm text-gray-500">Users</div>
+                                <div class="text-sm text-gray-500">Usuarios</div>
                                 <div class="font-bold text-lg">
 
                                     @if ($numUser = App\Models\Empleado::select('id_rol')
@@ -94,32 +91,47 @@
                         <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
                             <div
                                 class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                <svg class="w-6 h-6" stroke="currentColor"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                                    style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M467.819,431.851l-36.651-61.056c-16.896-28.181-25.835-60.437-25.835-93.312V224
+                                       c0-82.325-67.008-149.333-149.333-149.333S106.667,141.675,106.667,224v53.483c0,32.875-8.939,65.131-25.835,93.312
+                                       l-36.651,61.056c-1.984,3.285-2.027,7.403-0.149,10.731c1.899,3.349,5.461,5.419,9.301,5.419h405.333
+                                       c3.84,0,7.403-2.069,9.301-5.419C469.845,439.253,469.803,435.136,467.819,431.851z M72.171,426.667l26.944-44.907
+                                       C118.016,350.272,128,314.219,128,277.483V224c0-70.592,57.408-128,128-128s128,57.408,128,128v53.483
+                                       c0,36.736,9.984,72.789,28.864,104.277l26.965,44.907H72.171z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path d="M256,0c-23.531,0-42.667,19.136-42.667,42.667v42.667C213.333,91.221,218.112,96,224,96s10.667-4.779,10.667-10.667
+                                       V42.667c0-11.776,9.557-21.333,21.333-21.333s21.333,9.557,21.333,21.333v42.667C277.333,91.221,282.112,96,288,96
+                                       s10.667-4.779,10.667-10.667V42.667C298.667,19.136,279.531,0,256,0z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M302.165,431.936c-3.008-5.077-9.515-6.741-14.613-3.819c-5.099,2.987-6.805,9.536-3.819,14.613
+                                       c2.773,4.715,4.288,10.368,4.288,15.936c0,17.643-14.357,32-32,32c-17.643,0-32-14.357-32-32c0-5.568,1.515-11.221,4.288-15.936
+                                       c2.965-5.099,1.259-11.627-3.819-14.613c-5.141-2.923-11.627-1.259-14.613,3.819c-4.715,8.064-7.211,17.301-7.211,26.731
+                                       C202.667,488.085,226.581,512,256,512s53.333-23.915,53.376-53.333C309.376,449.237,306.88,440,302.165,431.936z" />
+                                        </g>
+                                    </g>
                                 </svg>
                             </div>
                             <div class="flex flex-col flex-grow ml-4">
-                                <div class="text-sm text-gray-500">Orders</div>
-                                <div class="font-bold text-lg">230</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
-                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
-                            <div
-                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="flex flex-col flex-grow ml-4">
-                                <div class="text-sm text-gray-500">New Clients</div>
-                                <div class="font-bold text-lg">190</div>
+                                <div class="text-sm text-gray-500">Notificaciones</div>
+                                @if ($numUser = App\Models\Notificaciones::select('user_id')
+        ->where('reply', '=', '0')
+        ->where('user_id', '=', Auth::user()->id)
+        ->count('user_id', '=', '2'))
+                                    {{ $numUser }}
+
+
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -127,6 +139,65 @@
                         <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
                             <div
                                 class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+
+                                <svg class="w-6 h-6" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                                    style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <g>
+                                                <path d="M320,162.133h34.133c4.713,0,8.533-3.821,8.533-8.533c0-4.713-3.82-8.533-8.533-8.533h-25.6v-76.8h85.333
+    c3.451-0.001,6.562-2.08,7.882-5.268s0.591-6.858-1.849-9.298l-19.567-19.567L419.9,14.566c2.442-2.44,3.173-6.112,1.852-9.301
+    c-1.322-3.188-4.434-5.266-7.885-5.265H320c-4.713,0-8.533,3.82-8.533,8.533V153.6C311.467,158.313,315.287,162.133,320,162.133z
+    M328.533,17.067h64.734L382.234,28.1c-3.331,3.332-3.331,8.734,0,12.066L393.267,51.2h-64.734V17.067z" />
+                                                <path d="M371.2,85.333h-17.067c-4.713,0-8.533,3.821-8.533,8.533c0,4.713,3.82,8.533,8.533,8.533H371.2
+    c56.538,0.038,102.362,45.862,102.4,102.4v128H328.533c-4.713,0-8.533,3.821-8.533,8.533s3.82,8.533,8.533,8.533H473.6v17.067
+    H302.933V204.8c0.09-31.703-12.508-62.124-34.987-84.48c-6.965-6.897-14.748-12.915-23.177-17.92h41.097
+    c4.713,0,8.533-3.821,8.533-8.533c0-4.713-3.82-8.533-8.533-8.533h-102.4C127.48,85.658,79.125,124.577,66.842,179.2H46.933
+    c-14.138,0-25.6,11.461-25.6,25.6v119.467c0,14.138,11.462,25.6,25.6,25.6H64v25.6c0,4.713,3.82,8.533,8.533,8.533H192v17.067
+    c0,14.138,11.461,25.6,25.6,25.6h34.133v76.8c0,4.713,3.82,8.533,8.533,8.533H294.4c4.713,0,8.533-3.82,8.533-8.533v-76.8h34.133
+    c14.138,0,25.6-11.462,25.6-25.6V384h119.467c4.713,0,8.533-3.82,8.533-8.533V204.8C490.624,138.838,437.162,85.376,371.2,85.333
+    z M81.067,366.933v-17.067H217.6c4.713,0,8.533-3.82,8.533-8.533s-3.821-8.533-8.533-8.533H46.933
+    c-4.713,0-8.533-3.82-8.533-8.533V204.8c0-4.713,3.82-8.533,8.533-8.533H217.6c4.713,0,8.533-3.82,8.533-8.533
+    s-3.821-8.533-8.533-8.533H84.309c11.906-45.062,52.55-76.542,99.157-76.8c56.538,0.038,102.362,45.862,102.4,102.4v162.133
+    H81.067z M285.867,494.933H268.8v-68.267h17.067V494.933z M345.6,401.067c0,4.713-3.821,8.533-8.533,8.533H217.6
+    c-4.713,0-8.533-3.82-8.533-8.533V384H345.6V401.067z" />
+                                                <path d="M202.377,214.955l-70.11,50.978l-70.076-50.97c-3.813-2.771-9.15-1.927-11.921,1.886
+    c-2.771,3.813-1.927,9.15,1.886,11.921l75.093,54.605c0.274,0.161,0.56,0.304,0.853,0.427c0.273,0.161,0.559,0.301,0.853,0.418
+    c1.039,0.486,2.165,0.756,3.311,0.794c1.158-0.033,2.296-0.303,3.345-0.794c0.295-0.118,0.58-0.257,0.853-0.418
+    c0.294-0.123,0.579-0.265,0.853-0.427l75.093-54.613c3.813-2.771,4.657-8.108,1.886-11.921
+    C211.526,213.028,206.189,212.184,202.377,214.955z" />
+                                                <path d="M90.159,271.533c-2.984-0.781-6.156,0.109-8.299,2.327l-30.72,30.72c-2.44,2.44-3.169,6.11-1.849,9.298
+    c1.32,3.188,4.431,5.267,7.882,5.268c2.263,0,4.433-0.9,6.033-2.5l30.72-30.72c2.218-2.143,3.108-5.315,2.327-8.299
+    S93.143,272.314,90.159,271.533z" />
+                                                <path d="M182.673,273.86c-2.143-2.218-5.315-3.108-8.299-2.327c-2.983,0.781-5.313,3.111-6.094,6.094
+    c-0.781,2.984,0.109,6.156,2.327,8.299l30.72,30.72c3.348,3.234,8.671,3.188,11.962-0.104c3.292-3.292,3.338-8.614,0.104-11.962
+    L182.673,273.86z" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+
+
+                            </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="text-sm text-gray-500">Sugerencias</div>
+                                @if ($numUser = App\Models\mailbox::select('boss_id')
+        // ->where('estado', '=', '0')
+        ->where('boss_id', '=', Auth::user()->id)
+        ->count('boss_id', '=', '2'))
+                                    {{ $numUser }}
+
+
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                        <div class="flex flex-row shadow-sm rounded p-4 border border-gray-300 p-6 rounded-lg">
+                            <div
+                                class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
+
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
