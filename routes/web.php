@@ -15,6 +15,8 @@ use App\Http\Livewire\RegistrerCompanies;
 use App\Http\Livewire\mailbox;
 use App\Http\Livewire\RegistraMailbox;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\CuestionarioController;
+use App\Http\Controllers\ReporteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +66,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Registro de empleados 2
 
 Route::resource('/registro/empleado', EmpleadosController::class);
+
+Route::resource('/cuestionario/uno', CuestionarioController::class);
+
+Route::get('resultados', [CuestionarioController::class, 'resultados'])->name('resultados');
+
+Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
+
+Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');

@@ -36,6 +36,10 @@
                         :active="request()->routeIs('listanNotificacion')">
                         {{ __('Notificaciones') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ url('cuestionario/uno') }}"
+                        :active="request()->routeIs('cuestionario/uno')">
+                        {{ __('Cuestionario 1') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
