@@ -20,16 +20,9 @@
                             :active="request()->routeIs('misempleados')">
                             {{ __('Ver Empleados') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('mailbox') }}"
-                            :active="request()->routeIs('mailbox')">
-                            {{ __('Buzón') }}
-                        </x-jet-nav-link>
                     @else
-                        <x-jet-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
-                            {{ __('User') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('NewMailbox') }}" :active="request()->routeIs('NewMailbox')">
-                            {{ __('Enviar Sugerencias') }}
+                        <x-jet-nav-link href="{{ route('infoEncuestas') }}" :active="request()->routeIs('infoEncuestas')">
+                            {{ __('Encuestas') }}
                         </x-jet-nav-link>
                     @endif
                     <x-jet-nav-link href="{{ route('listanNotificacion') }}"
@@ -156,10 +149,21 @@
                                 <x-jet-dropdown-link href="{{ route('registraCompañia') }}">
                                     {{ __('Información Empresa') }}
                                 </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('clinicalInformation') }}">
+                                    {{ __('Información Clinica') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('mailbox') }}">
+                                    {{ __('Buzón de Sugerencias') }}
+                                </x-jet-dropdown-link>
+                            @elseif(Auth::user()->id_rol == 2)
+                                <x-jet-dropdown-link href="{{ route('clinicalInformation') }}">
+                                    {{ __('Información Clinica') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('NewMailbox') }}">
+                                    {{ __('Enviar Sugerencia') }}
+                                </x-jet-dropdown-link>
                             @endif
-                            <x-jet-dropdown-link href="{{ route('clinicalInformation') }}">
-                                {{ __('Información Clinica') }}
-                            </x-jet-dropdown-link>
+
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -203,12 +207,25 @@
                     :active="request()->routeIs('misempleados')">
                     {{ __('Ver mis empleados') }}
                 </x-jet-responsive-nav-link>
-            @else
-                <x-jet-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
-                    {{ __('user') }}
+
+                <x-jet-responsive-nav-link href="{{ route('registraCompañia') }}"
+                    :active="request()->routeIs('registraCompañia')">
+                    {{ __('Información Empresa') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
-                    {{ __('mailbox') }}
+
+                <x-jet-responsive-nav-link href="{{ route('clinicalInformation') }}"
+                    :active="request()->routeIs('clinicalInformation')">
+                    {{ __('Información Clinica') }}
+                </x-jet-responsive-nav-link>
+            @elseif(Auth::user()->id_rol == 2)
+                <x-jet-responsive-nav-link href="{{ route('NewMailbox') }}"
+                    :active="request()->routeIs('NewMailbox')">
+                    {{ __('Enviar Sugerencia') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('clinicalInformation') }}"
+                    :active="request()->routeIs('clinicalInformation')">
+                    {{ __('Información Clinica') }}
                 </x-jet-responsive-nav-link>
             @endif
         </div>
