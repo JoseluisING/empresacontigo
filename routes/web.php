@@ -13,10 +13,6 @@ use App\Http\Livewire\RegistrarEmpleado;
 use App\Http\Livewire\RegistrerCompanies;
 use App\Http\Livewire\RegistraMailbox;
 use App\Http\Controllers\EmpleadosController;
-<<<<<<< HEAD
-=======
-
->>>>>>> 4eddf49b0282d56728316d0fd4b846a1689d3249
 use App\Http\Controllers\CuestionarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Livewire\InfoEncuestas;
@@ -77,8 +73,6 @@ Route::get('resultados', [CuestionarioController::class, 'resultados'])->name('r
 
 // Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
 
-<<<<<<< HEAD
 // Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
-=======
+
 Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
->>>>>>> 4eddf49b0282d56728316d0fd4b846a1689d3249
