@@ -69,10 +69,21 @@ Route::resource('/registro/empleado', EmpleadosController::class);
 
 Route::resource('/cuestionario/uno', CuestionarioController::class);
 
-Route::get('resultados', [CuestionarioController::class, 'resultados'])->name('resultados');
+Route::get('resultado/s1', [CuestionarioController::class, 'resultados1'])->name('resultados1');
+
+Route::get('resultado/s2', [CuestionarioController::class, 'resultados2'])->name('resultados2');
+
+Route::get('resultado/s3', [CuestionarioController::class, 'resultados3'])->name('resultados3');
+
+Route::get('resultado/s4', [CuestionarioController::class, 'resultados4'])->name('resultados4');
+
+
+
+
+
 
 // Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
 
 // Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
 
-Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
+// Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');

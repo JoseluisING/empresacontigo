@@ -1,10 +1,13 @@
 @extends('layouts.links')
 @section('content')
 <style type="text/css">
-    /*En tu hoja de estilos */
-a:link, a:visited, a:active {
-    text-decoration:none;
+/*En tu hoja de estilos */
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
 }
+
 </style>
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -34,38 +37,118 @@ a:link, a:visited, a:active {
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    	                <div class="row justify-center">
-                    <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
-                        <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
-                        <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
-                    </h1>
-                    <div class="col-md-6 text-center bg-gray-200 p-3 text-xl">
-                        <form action="{{ route('resultados') }}" method="get" class="row g-3 text-center justify-center">
-                            @csrf
-                            @foreach ($pregunta as $preguntas)
-                            <div class="col-auto">
-                                <label>{{ $preguntas->pregunta }}</label>
-                                <div>
-                                    <input type="radio" name="{{ $preguntas->id }}" value=0 required>
-                                    <label class="mr-10">Si</label>
-                                    <input type="radio" name="{{ $preguntas->id }}" value=1 required>
-                                    <label class="mb-7">No</label>
-                                </div>
+                        <div class="row justify-center">
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                                <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
+                                <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
+                            </h1>
+                            <div class="col-md-6 text-center bg-gray-200 p-3 text-xl">
+                                <form action="{{ route('resultados1') }}" method="get" class="row g-3 text-center justify-center">
+                                    @csrf
+                                    @foreach ($seccion_uno as $preguntas)
+                                    <div class="col-auto">
+                                        <label>{{ $preguntas->pregunta }}</label>
+                                        <div>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=1 required>
+                                            <label class="mr-10">Si</label>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=0 required>
+                                            <label class="mb-7">No</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    @endforeach
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="submit">Continuar cuestionario</button>
+                                    </div>
+                                </form>
                             </div>
-                            <br>
-                            @endforeach
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="submit">Continuar cuestionario</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                <div class="row justify-center">
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Dos <br>
+                                <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
+                                <p class="text-black text-lg">Durante el último mes:</p>
+                            </h1>
+                            <div class="col-md-6 text-center bg-gray-200 p-3 text-xl">
+                                <form action="{{ route('resultados2') }}" method="get" class="row g-3 text-center justify-center">
+                                    @csrf
+                                    @foreach ($seccion_dos as $preguntas)
+                                    <div class="col-auto">
+                                        <label>{{ $preguntas->pregunta }}</label>
+                                        <div>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=1 required>
+                                            <label class="mr-10">Si</label>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=0 required>
+                                            <label class="mb-7">No</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    @endforeach
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="submit">Continuar cuestionario</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="row justify-center">
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                                <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
+                                <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
+                            </h1>
+                            <div class="col-md-6 text-center bg-gray-200 p-3 text-xl">
+                                <form action="{{ route('resultados3') }}" method="get" class="row g-3 text-center justify-center">
+                                    @csrf
+                                    @foreach ($seccion_tres as $preguntas)
+                                    <div class="col-auto">
+                                        <label>{{ $preguntas->pregunta }}</label>
+                                        <div>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=1 required>
+                                            <label class="mr-10">Si</label>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=0 required>
+                                            <label class="mb-7">No</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    @endforeach
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="submit">Continuar cuestionario</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-defen" role="tabpanel" aria-labelledby="nav-defen-tab">
+                        <div class="row justify-center">
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                                <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
+                                <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
+                            </h1>
+                            <div class="col-md-6 text-center bg-gray-200 p-3 text-xl">
+                                <form action="{{ route('resultados4') }}" method="get" class="row g-3 text-center justify-center">
+                                    @csrf
+                                    @foreach ($seccion_cuatro as $preguntas)
+                                    <div class="col-auto">
+                                        <label>{{ $preguntas->pregunta }}</label>
+                                        <div>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=1 required>
+                                            <label class="mr-10">Si</label>
+                                            <input type="radio" name="{{ $preguntas->id }}" value=0 required>
+                                            <label class="mb-7">No</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    @endforeach
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="submit">Continuar cuestionario</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">2</div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">3</div>
-                    <div class="tab-pane fade" id="nav-defen" role="tabpanel" aria-labelledby="nav-defen-tab">4</div>
-                </div>
-
             </div>
         </div>
     </div>
