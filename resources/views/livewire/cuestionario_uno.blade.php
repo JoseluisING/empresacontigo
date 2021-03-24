@@ -1,5 +1,11 @@
 @extends('layouts.links')
 @section('content')
+<style type="text/css">
+    /*En tu hoja de estilos */
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+</style>
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ __('Dashboard') }} / Bienvenid@: {{ Auth::user()->name . ' ' . Auth::user()->ap_p . ' ' . Auth::user()->ap_m }}
