@@ -3,7 +3,6 @@
 use App\Http\Livewire\Avisos;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Livewire\Empleado;
 use App\Http\Livewire\EspecificAvisos;
 use App\Http\Livewire\GuardaAvisos;
 use App\Http\Livewire\InformacionClinica;
@@ -12,9 +11,12 @@ use App\Http\Livewire\ListaEmpleados;
 use App\Http\Livewire\ListaMailbox;
 use App\Http\Livewire\RegistrarEmpleado;
 use App\Http\Livewire\RegistrerCompanies;
-use App\Http\Livewire\mailbox;
 use App\Http\Livewire\RegistraMailbox;
 use App\Http\Controllers\EmpleadosController;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4eddf49b0282d56728316d0fd4b846a1689d3249
 use App\Http\Controllers\CuestionarioController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Livewire\InfoEncuestas;
@@ -44,23 +46,23 @@ Route::get('/NewMailbox', RegistraMailbox::class)->middleware(['auth', 'isUser']
 Route::get('/InfoEncuestas', InfoEncuestas::class)->middleware(['auth', 'isUser'])->name('infoEncuestas');
 
 //Rutas admin
-Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth', 'isAdmin','verfyCompany'])->name('misempleados');
-Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth', 'isAdmin' ,'verfyCompany'])->name('registrarEmpleado');
+Route::get('/MyEmpleados', ListaEmpleados::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('misempleados');
+Route::get('/NewEmpleado', RegistrarEmpleado::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('registrarEmpleado');
 Route::get('/RegistraEmpresa', RegistrerCompanies::class)->middleware(['auth', 'isAdmin'])->name('registraCompañia');
-Route::get('/NewNotifications', Avisos::class)->middleware(['auth', 'isAdmin','verfyCompany'])->name('notificacionAdmin');
-Route::get('/NewNotifications/{id}', Avisos::class)->middleware(['auth', 'isAdmin','verfyCompany'])->where('id', '[0-9]+')->name('notificacionAdmin.edit');
-Route::get('/NewNotifications/Elininar/{id_eliminar}', Avisos::class)->middleware(['auth', 'isAdmin','verfyCompany'])->where('id', '[0-9]+')->name('notificacionAdmin.eliminar');
-Route::get('/Mailbox', ListaMailbox::class)->middleware(['auth', 'isAdmin','verfyCompany'])->name('mailbox');
-Route::get('/MyEmpleados/Eliminar/{id_eliminar}', ListaEmpleados::class)->middleware(['auth', 'isAdmin','verfyCompany'])->where('id', '[0-9]+')->name('lista.eliminar');
+Route::get('/NewNotifications', Avisos::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('notificacionAdmin');
+Route::get('/NewNotifications/{id}', Avisos::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->where('id', '[0-9]+')->name('notificacionAdmin.edit');
+Route::get('/NewNotifications/Elininar/{id_eliminar}', Avisos::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->where('id', '[0-9]+')->name('notificacionAdmin.eliminar');
+Route::get('/Mailbox', ListaMailbox::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('mailbox');
+Route::get('/MyEmpleados/Eliminar/{id_eliminar}', ListaEmpleados::class)->middleware(['auth', 'isAdmin', 'verfyCompany'])->where('id', '[0-9]+')->name('lista.eliminar');
 
 //Rutas Ambos
-Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth','verfyCompany'])->name('clinicalInformation');
-Route::get('/ListaNotifications', ListaAvisos::class)->middleware(['auth','verfyCompany'])->name('listanNotificacion');
-Route::post('/EspecificNotifications', EspecificAvisos::class)->middleware(['auth','verfyCompany'])->name('especificNotificacion');
-Route::post('/GuardaAviso', GuardaAvisos::class)->middleware(['auth','verfyCompany'])->name('guardaAviso');
+Route::get('/RegistraClinicaInformation', InformacionClinica::class)->middleware(['auth', 'verfyCompany'])->name('clinicalInformation');
+Route::get('/ListaNotifications', ListaAvisos::class)->middleware(['auth', 'verfyCompany'])->name('listanNotificacion');
+Route::post('/EspecificNotifications', EspecificAvisos::class)->middleware(['auth', 'verfyCompany'])->name('especificNotificacion');
+Route::post('/GuardaAviso', GuardaAvisos::class)->middleware(['auth', 'verfyCompany'])->name('guardaAviso');
 
 //Dashboard
-Route::middleware(['auth:sanctum', 'verified','verfyCompany'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified', 'verfyCompany'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
@@ -75,4 +77,8 @@ Route::get('resultados', [CuestionarioController::class, 'resultados'])->name('r
 
 // Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
 
+<<<<<<< HEAD
 // Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
+=======
+Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
+>>>>>>> 4eddf49b0282d56728316d0fd4b846a1689d3249
