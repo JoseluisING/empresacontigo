@@ -3,7 +3,7 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ __('Dashboard') }} / Bienvenid@: {{ Auth::user()->name . ' ' . Auth::user()->ap_p . ' ' . Auth::user()->ap_m }}
-        @if (Auth::user()->id_rol == 1)
+        @if (Auth::user()->id_rol == 2)
         <div class="inline-block mr-2 mt-2">
             <button type="button" class="focus:outline-none text-blue-600 text-sm py-2.5 px-5 rounded-md hover:bg-blue-100">Admin</button>
         </div>
@@ -23,6 +23,7 @@
                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sección 1</button>
                         <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sección 2</button>
                         <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sección 3</button>
+                        <button class="nav-link" id="nav-defen-tab" data-bs-toggle="tab" data-bs-target="#nav-defen" type="button" role="tab" aria-controls="nav-defen" aria-selected="false">Sección 4</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -56,6 +57,7 @@
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">2</div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">3</div>
+                    <div class="tab-pane fade" id="nav-defen" role="tabpanel" aria-labelledby="nav-defen-tab">4</div>
                 </div>
 
             </div>

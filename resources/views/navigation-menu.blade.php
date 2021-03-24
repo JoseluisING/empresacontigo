@@ -29,10 +29,12 @@
                         :active="request()->routeIs('listanNotificacion')">
                         {{ __('Notificaciones') }}
                     </x-jet-nav-link>
+                    @if (Auth::user()->id_rol == 2)
                     <x-jet-nav-link href="{{ url('cuestionario/uno') }}"
                         :active="request()->routeIs('cuestionario/uno')">
                         {{ __('Cuestionario 1') }}
                     </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 
