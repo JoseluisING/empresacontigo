@@ -22,8 +22,6 @@
                 </h3>
             </div>
 
-
-
             @if (!App\Models\InfoClinica::where('user_id', '=', Auth::user()->id)->first())
                 <div class="p-6 sm:px-20 border-b border-gray-200">
                     <div class="flex bg-red-lighter max-w-md mb-4">

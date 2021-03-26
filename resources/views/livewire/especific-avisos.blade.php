@@ -27,8 +27,8 @@
         </div>
         <div class="w-full">
             <p class="text-xs text-gray-500 text-right">
-                {{ $lis->fecha }}
-                {{ $lis->hora }}</p>
+                {{ Carbon\Carbon::parse($lis->created_at)->diffForHumans() }}
+            </p>
         </div>
     @endforeach
     {{-- Formulario para responder Comentario --}}
@@ -69,12 +69,14 @@
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                             </svg>
                         @else
-                            <img class="w-16 h-16 object-cover rounded-full" src="/storage/{{ $lista->profile_photo_path }}">
+                            <img class="w-16 h-16 object-cover rounded-full"
+                                src="/storage/{{ $lista->profile_photo_path }}">
                         @endif
                         {{-- Fin foto de perfil --}}
                     </div>
                     <div class="flex-grow pl-2">
-                        <h4 class="font-bold text-md"> {{ $lista->name . ' ' . $lista->ap_p . ' ' . $lista->ap_m }}</h4>
+                        <h4 class="font-bold text-md"> {{ $lista->name . ' ' . $lista->ap_p . ' ' . $lista->ap_m }}
+                        </h4>
                         <p class="text-xs text-gray-600"> {{ $lista->email }}</p>
                     </div>
                 </div>
@@ -83,8 +85,8 @@
                 </div>
                 <div class="w-full">
                     <p class="text-xs text-gray-500 text-right">
-                        {{ $lista->fecha }}
-                        {{ $lista->hora }}</p>
+                        {{ Carbon\Carbon::parse($lista->created_at)->diffForHumans() }}
+                    </p>
                 </div>
 
             </div>

@@ -2,20 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\companies;
 use Livewire\Component;
 use App\Models\Empleado;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Livewire\WithPagination;
 
 class ListaEmpleados extends Component
 {
-
-    use AuthorizesRequests;
-    use WithPagination;
     public $elis;
+    public $search;
+    public $ordenanaBy = 'id';
+    public $direction = 'asc';
 
     public function mount($id = null, $id_eliminar = null)
     {
@@ -35,7 +31,25 @@ class ListaEmpleados extends Component
     public function render()
     {
         $id_user = Auth::user()->id;
-        $li = Empleado::paginate(15)->where('user_id', $id_user)->where('id_rol', 2);
+        $li = Empleado::where('user_id', '=', $id_user)
+            ->where('id_rol', '=', 2)
+            ->where('name', 'like', '%' . $this->search . '%')
+            ->orderBy($this->ordenanaBy, $this->direction)
+            ->get();
         return view('livewire.lista-empleados', compact('li'));
+    }
+
+    public function ordenar($ordenaBy)
+    {
+        if ($this->ordenanaBy == $ordenaBy) {
+            if ($this->direction == 'asc') {
+                $this->direction = "desc";
+            } else {
+                $this->direction = "asc";
+            }
+        } else {
+            $this->ordenanaBy = $ordenaBy;
+            $this->direction = "asc";
+        }
     }
 }
