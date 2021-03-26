@@ -3,11 +3,11 @@
 <!-- component -->
 <!-- This is an example component -->
 <div>
-    <section class=" text-gray-200 bg-gray-900">
+    <section class="text-white " style="background: rgba(45,45,110,255)">
         <div class="max-w-6xl mx-auto px-5 py-24 ">
             <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
                 <h1
-                    class="title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">
+                    class="mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl">
                     @if ($nomEmpresa = App\Models\companies::select('name')
         ->where('user_id', '=', Auth::user()->id)
         ->get())

@@ -8,6 +8,10 @@ use Livewire\Component;
 
 class ListaAvisosAdmin extends Component
 {
+    public $search;
+    public $ordenanaBy = 'id';
+    public $direction = 'desc';
+
     public function render()
     {
         $id_user = Auth::user()->id;
@@ -26,10 +30,25 @@ class ListaAvisosAdmin extends Component
             )
             ->where('notifications.user_id', '=', $id_user)
             ->where('notifications.reply', '=', '0')
+            ->where('tema', 'like', '%' . $this->search . '%')
             ->Orwhere('notifications.user_id', '=', $user_id)
-            ->orderBy('notifications.id', 'DESC')
+            ->orderBy($this->ordenanaBy, $this->direction)
             ->get();
 
         return view('livewire.lista-avisos-admin', compact('listaAdmin'));
+    }
+
+    public function ordenar($ordenaBy)
+    {
+        if ($this->ordenanaBy == $ordenaBy) {
+            if ($this->direction == 'asc') {
+                $this->direction = "desc";
+            } else {
+                $this->direction = "asc";
+            }
+        } else {
+            $this->ordenanaBy = $ordenaBy;
+            $this->direction = "asc";
+        }
     }
 }

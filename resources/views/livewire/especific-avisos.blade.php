@@ -38,9 +38,9 @@
             <form action="{{ route('guardaAviso') }}" method="POST">
                 @csrf
                 <input type="hidden" name="txtIdNotificacion" id="" value="{{ $list->id }}">
-                <input type="text" name="txtResponder"
-                    class="flex-1 appearance-none rounded shadow p-3 text-grey-dark mr-2 focus:outline-none"
-                    placeholder="Responder..." />
+                    <div class="px-6 py-2">
+                        <x-jet-input class="w-full" placeholder="Responder..." type="text" name="txtResponder" />
+                    </div>
                 <button
                     class="bg-blue-600 text-white text-base font-semibold rounded-md shadow-md hover:bg-indigo-600 p-3">Publicar</button>
             </form>
