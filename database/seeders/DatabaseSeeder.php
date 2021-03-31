@@ -13,15 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-          $this->call(rolSeeder::class);
-          $this->call(userSeeder::class);
-          $this->call(survey1Seeder::class);
-         $this->call(survey2Seeder::class);
-          $this->call(solutions1Seeder::class);
-          $this->call(solutions2Seeder::class);
-         $this->call(Empresas_seeder::class);
+        $this->call(rolSeeder::class);
+        $this->call(userSeeder::class);
+        $this->call(survey1Seeder::class);
+        $this->call(survey2Seeder::class);
+        $this->call(solutions1Seeder::class);
+        $this->call(solutions2Seeder::class);
+       // $this->call(Empresas_seeder::class);
 
 
-         //\App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(10)->create();
     }
 }

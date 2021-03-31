@@ -8,7 +8,7 @@
         @livewire('dashboard-user')
 
     @endif
-    <p class="text-center p-4 text-gray-600 pt-10">
+    <p class="text-center p-4 text-gray-600 bg-white pt-10">
         Todos los derechos reservados |
         <span class="text-blue-800">EmpresaContigo S.A de C.V.<br> Copyright &copy;<script>
                 document.write(new Date().getFullYear());
