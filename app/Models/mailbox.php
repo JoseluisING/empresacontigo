@@ -9,4 +9,5 @@ class mailbox extends Model
 {
     protected $table = 'mailbox';
     use HasFactory;
+    protected $fillable=['boss_id','user_id','tema','sugerencias', 'estado'];
 }
