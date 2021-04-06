@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(survey2Seeder::class);
         $this->call(solutions1Seeder::class);
         $this->call(solutions2Seeder::class);
-       // $this->call(Empresas_seeder::class);
+        $this->call(Empresas_seeder::class);
 
 
         //\App\Models\User::factory(10)->create();

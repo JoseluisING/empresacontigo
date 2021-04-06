@@ -14,6 +14,7 @@ class CuestionarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $seccion_uno = DB::table('survey_1')->where('seccion', 1)->get();
@@ -24,7 +25,20 @@ class CuestionarioController extends Controller
 
         $seccion_cuatro = DB::table('survey_1')->where('seccion', 4)->get();
 
-        return view('livewire/cuestionario_uno', compact('seccion_uno', 'seccion_dos', 'seccion_tres', 'seccion_cuatro'));
+        //Validación
+
+        $user = Auth::id();
+
+        $contesto = DB::table('results')->where('user_id', $user)->count();
+
+        if($contesto >= 1){
+            $s1 = DB::select('select * from results where user_id='.$user);
+            $resultado_s1 = ($s1) ? $s1[0]->result_survey_1:null;
+        }else{
+            $resultado_s1 = 0;
+        }
+
+        return view('livewire/cuestionario_uno', compact('seccion_uno', 'seccion_dos', 'seccion_tres', 'seccion_cuatro','resultado_s1'));
     }
 
     /**
@@ -95,17 +109,28 @@ class CuestionarioController extends Controller
 
     public function resultados1(Request $request)
     {
-        if($request->get(1)==="1" || $request->get(2)==="1" ||  $request->get(3)==="1" || $request->get(4)==="1" ||$request->get(5)==="1" || $request->get(6)==="1" ) {
-            return redirect(url('/cuestionario/uno'));
+        if($request->get(1)==="1" || $request->get(2)==="1" ||  $request->get(3)==="1" ||$request->get(4)==="1" ||$request->get(5)==="1" || $request->get(6)==="1" ) {
+
+            $user = Auth::id();
+
+            DB::table('results')->insert([
+            'user_id' => $user,
+            'result_survey_1' => '3',
+            'result_survey_2' => '6'
+            ]);
+
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
+
         }else{
             $user = Auth::id();
 
             DB::table('results')->insert([
             'user_id' => $user,
-            'result_survey_1' => '1'
+            'result_survey_1' => '1',
+            'result_survey_2' => '6'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
     }
 
@@ -115,20 +140,21 @@ class CuestionarioController extends Controller
 
         if($request->get(7)==="1" || $request->get(8)==="1") {
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
             'result_survey_1' => '2'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
-            'result_survey_1' => '1'
+            'result_survey_1' => '4'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
     }
 
@@ -144,20 +170,22 @@ class CuestionarioController extends Controller
 
         if($numeros >= 3) {
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
             'result_survey_1' => '2'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
-            'result_survey_1' => '1'
+            'result_survey_1' => '5'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
     }
 
@@ -173,20 +201,20 @@ class CuestionarioController extends Controller
 
         if($numeros >= 2) {
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
             'result_survey_1' => '2'
             ]);
 
-            return $Resultado_1 = redirect(url('/'));
+
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->insert([
+            DB::table('results')->update([
             'user_id' => $user,
             'result_survey_1' => '1'
             ]);
-
-            return $Resultado_1 = redirect(url('/'));
+            return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
     }
 }

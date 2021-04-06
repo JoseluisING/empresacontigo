@@ -14,6 +14,7 @@ use App\Http\Livewire\RegistrerCompanies;
 use App\Http\Livewire\RegistraMailbox;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\CuestionarioController;
+use App\Http\Controllers\CuestionariodosController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Livewire\InfoEncuestas;
 
@@ -67,6 +68,8 @@ Route::middleware(['auth:sanctum', 'verified', 'verfyCompany'])->get('/dashboard
 
 Route::resource('/registro/empleado', EmpleadosController::class);
 
+// Control de cuestionario 1
+
 Route::resource('/cuestionario/uno', CuestionarioController::class);
 
 Route::get('resultado/s1', [CuestionarioController::class, 'resultados1'])->name('resultados1');
@@ -77,10 +80,15 @@ Route::get('resultado/s3', [CuestionarioController::class, 'resultados3'])->name
 
 Route::get('resultado/s4', [CuestionarioController::class, 'resultados4'])->name('resultados4');
 
+Route::get('validaciones', [CuestionarioController::class, 'validacions1'])->name('validate');
 
+//Control de cuestionario 2
 
+Route::resource('/cuestionario/dos', CuestionariodosController::class);
 
+Route::get('resultados/s1', [CuestionariodosController::class, 'resultados1'])->name('resultado1');
 
+//Rutas de prueba de reporte
 
 // Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
 

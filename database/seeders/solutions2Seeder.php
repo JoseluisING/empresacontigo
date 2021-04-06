@@ -34,5 +34,9 @@ class solutions2Seeder extends Seeder
             'nivel' => 'Nulo',
             'descripcion' => 'El riesgo resulta despreciable por lo que no se requiere medidas adicionales.',
         ]);
+        DB::table('solutions_2')->insert([
+            'nivel' => 'Por Contestar',
+            'descripcion' => 'Cuestionario 1 Iniciado',
+        ]);
     }
 }

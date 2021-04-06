@@ -34,6 +34,10 @@
                         :active="request()->routeIs('cuestionario/uno')">
                         {{ __('Cuestionario 1') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ url('cuestionario/dos') }}"
+                        :active="request()->routeIs('cuestionario/dos')">
+                        {{ __('Cuestionario 2') }}
+                    </x-jet-nav-link>
                     @endif
                 </div>
             </div>
