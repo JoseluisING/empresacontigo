@@ -119,7 +119,7 @@ class survey2Seeder extends Seeder
             'valor_nunca' => '0',
         ]);
         DB::table('survey_2')->insert([
-            'pregunta' => 'Tabajo horas extras más de tres veces a la semana',
+            'pregunta' => 'Trabajo horas extras más de tres veces a la semana',
             'valor_siempre' => '4',
             'valor_casi_siempre' => '3',
             'valor_algunas_veces' => '2',
@@ -150,7 +150,7 @@ class survey2Seeder extends Seeder
             'valor_casi_nunca' => '1',
             'valor_nunca' => '0',
         ]);
-        
+
         //18-33
         DB::table('survey_2')->insert([
             'pregunta' => 'Mi trabajo permite que desarrolle nuevas habilidades',

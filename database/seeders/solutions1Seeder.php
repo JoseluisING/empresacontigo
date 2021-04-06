@@ -20,5 +20,14 @@ class solutions1Seeder extends Seeder
         DB::table('solutions_1')->insert([
             'descripcion' => 'Requiere valoración clínica',
         ]);
+        DB::table('solutions_1')->insert([
+            'descripcion' => 'Seccion 1 OK',
+        ]);
+        DB::table('solutions_1')->insert([
+            'descripcion' => 'Seccion 2 OK',
+        ]);
+        DB::table('solutions_1')->insert([
+            'descripcion' => 'Seccion 3 OK',
+        ]);
     }
 }

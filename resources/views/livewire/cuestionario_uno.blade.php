@@ -27,18 +27,17 @@ a:active {
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 justify-center">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="container-fluid bg-gray-200">
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sección 1</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sección 2</button>
-                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sección 3</button>
-                        <button class="nav-link" id="nav-defen-tab" data-bs-toggle="tab" data-bs-target="#nav-defen" type="button" role="tab" aria-controls="nav-defen" aria-selected="false">Sección 4</button>
-                    </div>
-                </nav>
+                @if($resultado_s1 == 1 || $resultado_s1 == 2)
+                Cuestionario Completado
+                @else
                 <div class="tab-content" id="nav-tabContent">
+                    @if($resultado_s1 == 0)
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    @else
+                    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    @endif
                         <div class="row justify-center">
-                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno<br>
                                 <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
                                 <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
                             </h1>
@@ -64,9 +63,13 @@ a:active {
                             </div>
                         </div>
                     </div>
+                    @if($resultado_s1 == 3)
+                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    @else
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                                <div class="row justify-center">
-                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Dos <br>
+                    @endif
+                        <div class="row justify-center">
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno<br>
                                 <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
                                 <p class="text-black text-lg">Durante el último mes:</p>
                             </h1>
@@ -92,9 +95,13 @@ a:active {
                             </div>
                         </div>
                     </div>
+                     @if($resultado_s1 == 4)
+                    <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    @else
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    @endif
                         <div class="row justify-center">
-                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno<br>
                                 <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
                                 <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
                             </h1>
@@ -120,9 +127,13 @@ a:active {
                             </div>
                         </div>
                     </div>
+                     @if($resultado_s1 == 5)
+                    <div class="tab-pane fade show active" id="nav-defen" role="tabpanel" aria-labelledby="nav-defen-tab">
+                    @else
                     <div class="tab-pane fade" id="nav-defen" role="tabpanel" aria-labelledby="nav-defen-tab">
+                    @endif
                         <div class="row justify-center">
-                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno <br>
+                            <h1 class="text-center  text-red-600 p-10 font-extrabold">Cuestionario Uno<br>
                                 <p class="text-black text-lg">Por favor responde a este cuestionario.</p>
                                 <p class="text-black text-lg">Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo un acontecimiento como los siguientes:</p>
                             </h1>
@@ -149,7 +160,9 @@ a:active {
                         </div>
                     </div>
                 </div>
+            @endif
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
