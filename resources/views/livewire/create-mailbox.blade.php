@@ -13,20 +13,29 @@
             <div class="mb-4">
                 <x-jet-label value="Tema de la Sugerencia" />
                 <x-jet-input wire:model.defer="tema" type="text" class="w-full" />
+                @error('tema')
+                    <x-jet-input-error for="tema" />
+                @enderror
             </div>
 
             <div class="mb-4">
                 <x-jet-label value="Contenido de la Sugerencia" />
                 <textarea wire:model.defer="sugerencias" name="" class="form-control w-full" rows="6"></textarea>
+                @error('sugerencias')
+                    <x-jet-input-error for="sugerencias" />
+                @enderror
             </div>
 
             <div class="mb-4">
                 <x-jet-label value="¿Será Anónimo?" />
                 <select name="" class="form-control w-full" wire:model.defer="estado">
-                    <option value="none" selected >[Seleccionar]</option>
+                    <option value="none" selected>[Seleccionar]</option>
                     <option value="1">No</option>
                     <option value="0">Si</option>
                 </select>
+                @error('estado')
+                    <x-jet-input-error for="estado" />
+                @enderror
             </div>
 
         </x-slot>

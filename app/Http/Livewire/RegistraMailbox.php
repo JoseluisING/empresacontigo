@@ -13,11 +13,12 @@ class RegistraMailbox extends Component
     public $search;
     public $ordenanaBy = 'id';
     public $direction = 'asc';
+    protected $listeners = ['refresca' => 'render'];
 
     public function render()
     {
         $this->lisMailbox = mailbox::where('tema', 'like', '%' . $this->search . '%')
-            ->where('user_id','=',Auth::user()->id)
+            ->where('user_id', '=', Auth::user()->id)
             ->orderBy($this->ordenanaBy, $this->direction)
             ->get();
 
