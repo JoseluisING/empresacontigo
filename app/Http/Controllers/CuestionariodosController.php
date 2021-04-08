@@ -132,35 +132,35 @@ class CuestionariodosController extends Controller
         }
 
         $user = Auth::id();
+
         if($s < 20) {
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_2' => '5'
-            ]);
+
+            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '5']);
+
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+
         }else if($s >= 20 && $s < 45){
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_2' => '4'
-            ]);
+
+            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '4']);
+
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+
         }else if($s >= 45 && $s < 70){
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_2' => '3'
-            ]);
+
+            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '3']);
+
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+
         }else if($s >= 70 && $s < 90){
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_2' => '2'
-            ]);
+
+            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '2']);
+
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+
         }else if($s >= 90){
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_2' => '1'
-            ]);
+
+            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '1']);
+
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
         }
     }
