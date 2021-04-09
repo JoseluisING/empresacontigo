@@ -140,19 +140,12 @@ class CuestionarioController extends Controller
 
         if($request->get(7)==="1" || $request->get(8)==="1") {
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '2'
-            ]);
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '2']);
 
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '4'
-            ]);
-
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '4']);
 
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
@@ -170,20 +163,12 @@ class CuestionarioController extends Controller
 
         if($numeros >= 3) {
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '2'
-            ]);
-
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '2']);
 
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '5'
-            ]);
-
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '5']);
 
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
@@ -201,19 +186,13 @@ class CuestionarioController extends Controller
 
         if($numeros >= 2) {
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '2'
-            ]);
-
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '2']);
 
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }else{
 
-            DB::table('results')->update([
-            'user_id' => $user,
-            'result_survey_1' => '1'
-            ]);
+            DB::table('results')->where('user_id',$user)->update(['result_survey_1' => '1']);
+
             return $Resultado_1 = redirect(url('/cuestionario/uno'));
         }
     }
