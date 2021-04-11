@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PHPJasper\PHPJasper;
+use Illuminate\Support\Facades\Auth;
 
 class ReporteController extends Controller
 {
     public function reporteEmpresarios()
     {
+        $user = Auth::id();
     	$input = 'C:\Users\luisb\JaspersoftWorkspace\MyReports\Empleados.jasper';
 		$output = 'C:\Users\luisb\JaspersoftWorkspace\MyReports';
 		$options = [
 		    'format' => ['pdf'],
 		    'locale' => 'en',
-		    'params' => [],
+		    'params' => ['Puser'=> $user],
 		    'db_connection' => [
 		        'driver' => 'postgres', //mysql, ....
 		        'username' => 'postgres',
@@ -27,13 +29,15 @@ class ReporteController extends Controller
 
 		$jasper = new PHPJasper;
 
-		return $jasper->process(
+		$jasper->process(
 		        $input,
 		        $output,
 		        $options
-		)->output();
+		)->execute();
 
-		return response()->file($output, 'Empresas.pdf');
+		// )->output();
+
+	return response()->file($output. '\Empleados.pdf');
     }
 
     public function compilarEmpresarios()
@@ -44,5 +48,12 @@ class ReporteController extends Controller
 		$jasper->compile($input)->execute();
 
 		return "Reporte compilado";
+    }
+
+    public function VerEmpresarios()
+    {
+    	$user = Auth::id();
+
+    	return redirect()->route('admin/reporte/', ['id' => $user]);
     }
 }

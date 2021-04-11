@@ -94,4 +94,4 @@ Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios']
 
 Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
 
-Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
+Route::get('admin/reporte/{id}', [ReporteController::class, 'VerEmpresarios'])->name('verempleados');
