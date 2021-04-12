@@ -20,6 +20,10 @@
                             :active="request()->routeIs('misempleados')">
                             {{ __('Ver Empleados') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link target="_blank" href="{{ url('/reporte/empresas') }}"
+                            :active="request()->routeIs('reportempresarios')">
+                            {{ __('Reporte') }}
+                        </x-jet-nav-link>
                     @else
                         <x-jet-nav-link href="{{ route('infoEncuestas') }}" :active="request()->routeIs('infoEncuestas')">
                             {{ __('Encuestas') }}
