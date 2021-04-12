@@ -20,12 +20,13 @@
                             :active="request()->routeIs('misempleados')">
                             {{ __('Ver Empleados') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link target="_blank" href="{{ url('/reporte/empresas') }}"
+                        {{-- <x-jet-nav-link target="_blank" href="{{ url('/reporte/empresas') }}"
                             :active="request()->routeIs('reportempresarios')">
-                            {{ __('Reporte') }}
-                        </x-jet-nav-link>
+                            {{ __('Generar Reporte') }}
+                        </x-jet-nav-link> --}}
                     @else
-                        <x-jet-nav-link href="{{ route('infoEncuestas') }}" :active="request()->routeIs('infoEncuestas')">
+                        <x-jet-nav-link href="{{ route('infoEncuestas') }}"
+                            :active="request()->routeIs('infoEncuestas')">
                             {{ __('Encuestas') }}
                         </x-jet-nav-link>
                     @endif
@@ -33,16 +34,25 @@
                         :active="request()->routeIs('listanNotificacion')">
                         {{ __('Notificaciones') }}
                     </x-jet-nav-link>
-                    @if (Auth::user()->id_rol == 2)
-                    <x-jet-nav-link href="{{ url('cuestionario/uno') }}"
-                        :active="request()->routeIs('cuestionario/uno')">
-                        {{ __('Cuestionario 1') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ url('cuestionario/dos') }}"
-                        :active="request()->routeIs('cuestionario/dos')">
-                        {{ __('Cuestionario 2') }}
-                    </x-jet-nav-link>
+                    @if (Auth::user()->id_rol == 1)
+                        <x-jet-nav-link href="{{ route('mailbox') }}" :active="request()->routeIs('mailbox')">
+                            {{ __('Buzón de Sugerencias') }}
+                        </x-jet-nav-link>
+                    @else
+                        <x-jet-nav-link href="{{ route('NewMailbox') }}" :active="request()->routeIs('NewMailbox')">
+                            {{ __('Enviar Sugerencias') }}
+                        </x-jet-nav-link>
                     @endif
+                    {{-- @if (Auth::user()->id_rol == 2)
+                        <x-jet-nav-link href="{{ url('cuestionario/uno') }}"
+                            :active="request()->routeIs('cuestionario/uno')">
+                            {{ __('Cuestionario 1') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('cuestionario/dos') }}"
+                            :active="request()->routeIs('cuestionario/dos')">
+                            {{ __('Cuestionario 2') }}
+                        </x-jet-nav-link>
+                    @endif --}}
                 </div>
             </div>
 
@@ -162,9 +172,6 @@
                                 <x-jet-dropdown-link href="{{ route('clinicalInformation') }}">
                                     {{ __('Información Clinica') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('mailbox') }}">
-                                    {{ __('Buzón de Sugerencias') }}
-                                </x-jet-dropdown-link>
                             @elseif(Auth::user()->id_rol == 2)
                                 <x-jet-dropdown-link href="{{ route('clinicalInformation') }}">
                                     {{ __('Información Clinica') }}
@@ -226,6 +233,20 @@
                 <x-jet-responsive-nav-link href="{{ route('clinicalInformation') }}"
                     :active="request()->routeIs('clinicalInformation')">
                     {{ __('Información Clinica') }}
+                </x-jet-responsive-nav-link>
+
+                {{-- <x-jet-responsive-nav-link href="{{ route('reportempresarios') }}"
+                    :active="request()->routeIs('reportempresarios')">
+                    {{ __('Generar Reporte') }}
+                </x-jet-responsive-nav-link> --}}
+
+                <x-jet-responsive-nav-link href="{{ route('listanNotificacion') }}"
+                    :active="request()->routeIs('listanNotificacion')">
+                    {{ __('Notificaciones') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('mailbox') }}" :active="request()->routeIs('mailbox')">
+                    {{ __('Buzón de Sugerencias') }}
                 </x-jet-responsive-nav-link>
             @elseif(Auth::user()->id_rol == 2)
                 <x-jet-responsive-nav-link href="{{ route('NewMailbox') }}"

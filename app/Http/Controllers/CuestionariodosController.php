@@ -17,29 +17,39 @@ class CuestionariodosController extends Controller
 
     public function index()
     {
-        $seccion_uno = DB::table('survey_2')->where('id','<=',9)->get();
-        $seccion_dos = DB::table('survey_2')->where('id','>',9)->where('id','<=',13)->get();
-        $seccion_tres = DB::table('survey_2')->where('id', '>',13)->where('id','<=',17)->get();
-        $seccion_cuatro = DB::table('survey_2')->where('id', '>',17)->where('id','<=',22)->get();
-        $seccion_cinco = DB::table('survey_2')->where('id', '>',22)->where('id','<=',27)->get();
-        $seccion_seis = DB::table('survey_2')->where('id', '>',27)->where('id','<=',40)->get();
-        $opcion_uno = DB::table('survey_2')->where('id', '>',40)->where('id','<=',43)->get();
-        $opcion_dos = DB::table('survey_2')->where('id', '>',43)->where('id','<=',46)->get();
+        $seccion_uno = DB::table('survey_2')->where('id', '<=', 9)->get();
+        $seccion_dos = DB::table('survey_2')->where('id', '>', 9)->where('id', '<=', 13)->get();
+        $seccion_tres = DB::table('survey_2')->where('id', '>', 13)->where('id', '<=', 17)->get();
+        $seccion_cuatro = DB::table('survey_2')->where('id', '>', 17)->where('id', '<=', 22)->get();
+        $seccion_cinco = DB::table('survey_2')->where('id', '>', 22)->where('id', '<=', 27)->get();
+        $seccion_seis = DB::table('survey_2')->where('id', '>', 27)->where('id', '<=', 40)->get();
+        $opcion_uno = DB::table('survey_2')->where('id', '>', 40)->where('id', '<=', 43)->get();
+        $opcion_dos = DB::table('survey_2')->where('id', '>', 43)->where('id', '<=', 46)->get();
 
         $user = Auth::id();
 
         $contesto = DB::table('results')->where('user_id', $user)->count();
 
-        if($contesto >= 1){
-            $s1 = DB::select('select * from results where user_id='.$user);
-            $resultado_c1 = ($s1) ? $s1[0]->result_survey_1:null;
-            $resultado_c2 = ($s1) ? $s1[0]->result_survey_2:null;
-        }else{
+        if ($contesto >= 1) {
+            $s1 = DB::select('select * from results where user_id=' . $user);
+            $resultado_c1 = ($s1) ? $s1[0]->result_survey_1 : null;
+            $resultado_c2 = ($s1) ? $s1[0]->result_survey_2 : null;
+        } else {
             $resultado_c1 = 0;
             $resultado_c2 = 0;
         }
-
-        return view('livewire/cuestionario_dos', compact('seccion_uno','seccion_dos','seccion_tres','seccion_cuatro','seccion_cinco','seccion_seis','opcion_uno','opcion_dos','resultado_c1','resultado_c2'));
+        if ($resultado_c1 == 0) {
+            session()->flash('favor', 'ok');
+            return redirect(route('infoEncuestas'));
+        } elseif ($resultado_c1 == 3 || $resultado_c1 == 4 || $resultado_c1 == 5) {
+            session()->flash('terminar', 'ok');
+            return redirect(route('infoEncuestas'));
+        } elseif ($resultado_c2 != 6) {
+            session()->flash('listo', 'ok');
+            return redirect(route('infoEncuestas'));
+        } else {
+            return view('livewire/cuestionario_dos', compact('seccion_uno', 'seccion_dos', 'seccion_tres', 'seccion_cuatro', 'seccion_cinco', 'seccion_seis', 'opcion_uno', 'opcion_dos', 'resultado_c1', 'resultado_c2'));
+        }
     }
 
     /**
@@ -110,56 +120,52 @@ class CuestionariodosController extends Controller
 
     public function resultados1(Request $request)
     {
-        $s=0;
-        for($i=1; $i<=9; $i++){
+        $s = 0;
+        for ($i = 1; $i <= 9; $i++) {
             $valor = $request->get($i);
             $s += $valor;
         }
 
-        for($i=10; $i<=17; $i++){
+        for ($i = 10; $i <= 17; $i++) {
             $valor = $request->get($i);
             $s += $valor;
         }
 
-        for($i=18; $i<=27; $i++){
+        for ($i = 18; $i <= 27; $i++) {
             $valor = $request->get($i);
             $s += $valor;
         }
 
-        for($i=28; $i<=46; $i++){
+        for ($i = 28; $i <= 46; $i++) {
             $valor = $request->get($i);
             $s += $valor;
         }
 
         $user = Auth::id();
 
-        if($s < 20) {
+        if ($s < 20) {
 
-            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '5']);
-
-            return $Resultado_1 = redirect(url('/cuestionario/dos'));
-
-        }else if($s >= 20 && $s < 45){
-
-            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '4']);
+            DB::table('results')->where('user_id', $user)->update(['result_survey_2' => '5']);
 
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+        } else if ($s >= 20 && $s < 45) {
 
-        }else if($s >= 45 && $s < 70){
-
-            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '3']);
-
-            return $Resultado_1 = redirect(url('/cuestionario/dos'));
-
-        }else if($s >= 70 && $s < 90){
-
-            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '2']);
+            DB::table('results')->where('user_id', $user)->update(['result_survey_2' => '4']);
 
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
+        } else if ($s >= 45 && $s < 70) {
 
-        }else if($s >= 90){
+            DB::table('results')->where('user_id', $user)->update(['result_survey_2' => '3']);
 
-            DB::table('results')->where('user_id',$user)->update(['result_survey_2' => '1']);
+            return $Resultado_1 = redirect(url('/cuestionario/dos'));
+        } else if ($s >= 70 && $s < 90) {
+
+            DB::table('results')->where('user_id', $user)->update(['result_survey_2' => '2']);
+
+            return $Resultado_1 = redirect(url('/cuestionario/dos'));
+        } else if ($s >= 90) {
+
+            DB::table('results')->where('user_id', $user)->update(['result_survey_2' => '1']);
 
             return $Resultado_1 = redirect(url('/cuestionario/dos'));
         }

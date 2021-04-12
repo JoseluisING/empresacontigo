@@ -78,11 +78,12 @@
                 <h1 class="text-4xl lg:text-6xl leading-none mb-4"><strong class="font-black">
                         {{ Auth::user()->ap_p . ' ' . Auth::user()->ap_m }}</strong> {{ Auth::user()->name }}
                 </h1>
-                <p class="lg:text-lg mb-4 sm:mb-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                <p class="lg:text-lg mb-4 sm:mb-12">Genera reportes de los usuarios que ya contestaron las encuestas. ¡Es muy fácil!
                 </p>
-                <a href="#"
-                    class="font-semibold text-lg bg-blue-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Learn
-                    more</a>
+                <a href="{{route('reportempresarios')}}" target="_blank"
+                    class="font-semibold text-lg bg-blue-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">
+                    Generar Reporte
+                </a>
             </div>
             <div class="sm:w-3/5">
                 <svg class="w-full" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370.6 270.58">
@@ -430,16 +431,18 @@
                                 <div
                                     class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
 
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                        </path>
-                                    </svg>
+                                    <i class="fa fa-book" aria-hidden="true"></i>
                                 </div>
                                 <div class="flex flex-col flex-grow ml-4">
-                                    <div class="text-sm text-gray-500">Revenue</div>
-                                    <div class="font-bold text-lg">$ 32k</div>
+                                    <div class="text-sm text-gray-500">Encuestas Realizadas</div>
+                                    <div class="font-bold text-lg">
+                                    @if ($numConte = App\Models\results::select('users.id','results.user_id','users.user_id')
+                                    ->join('users','users.id','=', 'results.user_id')
+                                    ->where('users.user_id','=',Auth::user()->id)
+                                    ->count('users.user_id'))
+                                        {{ $numConte }}
+                                    @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -451,4 +454,18 @@
 
         </div>
     </main>
+
+    @if (session('btnCrear') == 'ok')
+    <script>
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Al parecer nadie a realizado las encuestas!',
+        footer: 'Mandales un aviso que deben de contestar las encuestas'
+        });
+
+    </script>
+
+@endif
 </div>
+

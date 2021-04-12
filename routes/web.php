@@ -90,8 +90,8 @@ Route::get('resultados/s1', [CuestionariodosController::class, 'resultados1'])->
 
 //Rutas de prueba de reporte
 
-Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->name('reportempresarios');
+Route::get('/reporte/empresas', [ReporteController::class, 'reporteEmpresarios'])->middleware(['auth', 'isAdmin', 'verfyCompany', 'verfyReports'])->name('reportempresarios');
 
-Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->name('compilarempresarios');
+Route::get('/compilar/empresas', [ReporteController::class, 'compilarEmpresarios'])->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('compilarempresarios');
 
-Route::get('admin/reporte/{id}', [ReporteController::class, 'VerEmpresarios'])->name('verempleados');
+Route::get('admin/reporte/{id}', [ReporteController::class, 'VerEmpresarios'])->middleware(['auth', 'isAdmin', 'verfyCompany'])->name('verempleados');

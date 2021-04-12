@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'isUser' => \App\Http\Middleware\VerificaRol::class,
         'isAdmin' => \App\Http\Middleware\VerificaRol2::class,
         'verfyCompany' => \App\Http\Middleware\VerifyCompany::class,
+        'verfyReports' => \App\Http\Middleware\VerifyReports::class,
     ];
 }

@@ -13,16 +13,20 @@
                             Realiza tus encuestas
                         </h1>
 
-                        <p class="text-indigo-200 md:text-xl md:pr-48">
+                        <p class="text-indigo-200 md:text-xl md:pr-48 text-justify">
                             Es importante saber que no solo es una opción realizar la o las ecuncuetas, esto te
                             ayudará a tener un ambiente laboral armónico, es también una de tantas obligaciones
                             patronales, que ayudan a los colaboradores de la empresa.
                         </p>
 
-                        <a href="#"
-                            class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow"
+                        <a href="{{ url('cuestionario/uno') }}"
+                            class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-red-500 hover:bg-pink-600 rounded-lg shadow"
                             id="btnEmpezar">
-                            Comenzar</a>
+                            Cuestionario 1</a>
+                        <a href="{{ url('cuestionario/dos') }}"
+                            class="mt-6 mb-12 md:mb-0 md:mt-10 inline-block py-3 px-8 text-white bg-green-500 hover:bg-purple-600 rounded-lg shadow"
+                            id="btnEmpezar">
+                            Cuestionario 2</a>
                     </div>
                     <div class="md:w-1/2 relative">
                         <div class="hidden md:block">
@@ -269,43 +273,46 @@
     </p>
 </div>
 
+@if (session('contestado') == 'ok')
+    <script>
+        Swal.fire(
+            '¡Ya, contestaste este cuestionario!',
+            'Favor de contestar el cuestionario 2 en caso de no contestar aún',
+            'success'
+        );
 
-<script>
-    $(document).ready(function() {
-        $(document).on('click', '#btnEmpezar', function(e) {
+    </script>
 
-            e.preventDefault();
+@endif
+@if (session('listo') == 'ok')
+    <script>
+        Swal.fire(
+            '¡Listo, ya contestaste este cuestionario!',
+            'Espera indicaciones de tu jefe.',
+            'success'
+        );
 
-            let timerInterval
-            Swal.fire({
-                title: '¡Recuerda ser sincero!',
-                html: 'Esta ventana se cerrara en: <b></b> milliseconds.',
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                    timerInterval = setInterval(() => {
-                        const content = Swal.getContent()
-                        if (content) {
-                            const b = content.querySelector('b')
-                            if (b) {
-                                b.textContent = Swal.getTimerLeft()
-                            }
-                        }
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                    window.location = $(this).attr('href');
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('I was closed by the timer')
-                }
-            })
+    </script>
 
+@endif
+
+@if (session('favor') == 'ok')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Uups...',
+            text: '¡No has contestado el cuestionario 1!'
         });
-    });
 
-</script>
+    </script>
+@endif
+@if (session('terminar') == 'ok')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Uups...',
+            text: '¡Favor de terminar todas las secciones del Cuestionario 1!'
+        });
+
+    </script>
+@endif
